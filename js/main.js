@@ -3,6 +3,8 @@ const apiKey = '3SfbrMVgduWdKtr1Aecz7Z8dMSYKkAWTejCvL0av';
 
 const apodImg = document.querySelector('.apod-flexbox');
 
+const mainInputForm = document.querySelector('form');
+
 // // APOD image explanation
 // const apodImgTitle = document.querySelector('.space-APOD-content h2');
 // const apodImgPara = document.querySelector('.space-APOD-content p');
@@ -20,13 +22,9 @@ const planetImagesCall = document.querySelector('.AJAX-planet-image');
 // // Font awesome magnifying glass
 const magnifying_glass = document.querySelector('.fa-magnifying-glass');
 
-// if user types in a planet name get the correct planet image
-const inputSearch = document.querySelector('form input').value;
-
 magnifying_glass.classList.add('fa-magnifying-glass');
 magnifying_glass.classList.add('fa-solid');
-magnifying_glass.classList.add('m-1');
-magnifying_glass.classList.add('bg-info');
+// magnifying_glass.classList.add('m-1');
 magnifying_glass.classList.add('rounded');
 
 // APOD Main Img AJAX Call
@@ -79,26 +77,45 @@ apodImgExplanation();
 
 // Calling the Image/Video API
 
-function userTypeInput(e) {
-  // API request creation with XMLHTTPrequest
+magnifying_glass.addEventListener('click', () => {
+  const img = document.querySelector('.planet_img_api');
+  console.log(typeof img);
+  if (img) {
+    img.remove();
+  }
+
+  // if user types in a planet name get the correct planet image
+  const inputSearch = document.querySelector('form input').value;
   const xhr = new XMLHttpRequest();
-  xhr.open('GET', `https://images-api.nasa.gov/search?q=pluto`);
+  xhr.open('GET', `https://images-api.nasa.gov/search?q=${inputSearch}`);
   xhr.responseType = 'json';
 
   xhr.addEventListener('load', () => {
-    console.log(xhr.response.collection);
-  });
+    const randomNum = Math.floor(
+      Math.random() * xhr.response.collection.items.length,
+    );
+    console.log(xhr.response.collection.items);
 
-  function renderPlanetImages() {
+    const lightbox = document.createElement('a');
     const imgElement = document.createElement('img');
-    igmElement.setAttribute('src');
-  }
+    imgElement.setAttribute(
+      'src',
+      xhr.response.collection.items[randomNum].links[0].href,
+    );
+    imgElement.className = 'd-block rounded planet_img_api';
+    imgElement.height = '230';
+    planetImagesCall.appendChild(imgElement);
 
-  magnifying_glass.addEventListener('click', () => {
-    xhr.send();
+    // Wrapping img's inside a lightbox anchor element
+    lightbox.setAttribute('data-lightbox', 'cases');
+    planetImagesCall.appendChild(lightbox);
+
+    // console.log(xhr.response.collection.items)
+
+    if (inputSearch) {
+      // document.body.style.display = 'none'
+    }
   });
-}
-
-userTypeInput();
-
+  xhr.send();
+});
 // comment parsed for git purposes

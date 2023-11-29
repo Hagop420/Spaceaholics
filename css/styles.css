@@ -33,6 +33,13 @@
   align-items: center;
 }
 
+/* Planet api pull image styling */
+.planet_img_api {
+  margin: 10px auto;
+}
+
+/*
+
 form {
   display: flex;
 }
@@ -58,8 +65,8 @@ form input::placeholder {
 
 /* font awesome icon styling */
 form i.fa-magnifying-glass {
-  padding: 11.5px;
-  font-size: 18px;
+  padding: 10px;
+  font-size: 17.1px;
   transition: 0.4s all ease-in-out;
 }
 
@@ -75,27 +82,54 @@ form i.fa-magnifying-glass:hover {
   }
 
   .width_desktop_styling {
-    height: 300px;
+    height: 400px;
   }
 
-  .APOD_explanation_desktop_view {
-    width: 70%;
-    font-size: 11px;
-    padding: 5px;
-  }
-
+  /* APOD img explanation title */
   .appendingAPODpara {
     font-weight: bold;
     margin: 2px;
     font-size: 18px;
   }
 
-  .APOD_explanation_desktop_view,
-  .appendingAPODpara {
-    margin: 3px;
+  /* APOD img paragraph explanation styling */
+
+  .APOD_explanation_desktop_view {
+    /* width: 130%; */
+    font-size: 11px;
+    padding: 5px;
   }
 
   .copyright-left {
     float: left;
+  }
+
+  form input {
+    width: 25vw;
+    margin: 5px;
+  }
+
+  /* font awesome icon styling */
+
+  .desktop_view {
+    padding: 20px;
+  }
+
+  .frame_desktop {
+    flex-direction: row-reverse;
+    justify-content: space-around;
+  }
+
+  .planetSearch {
+    display: flex;
+    flex-direction: column;
+    text-align: left !important;
+  }
+
+  /* enlarging the iframe */
+  iframe {
+    width: 650px;
+    height: 400px;
+    object-fit: contain;
   }
 }

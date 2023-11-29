@@ -30,7 +30,7 @@
         <div class="space-APOD-content"></div>
       </main>
 
-      <section class="frame-flex">
+      <section class="frame-flex frame_desktop">
         <iframe
           width="500"
           height="295"
@@ -39,19 +39,19 @@
           title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen></iframe>
+
+        <div class="AJAX-planet-image">
+          <form action="">
+            <label for="planetSearch">
+              <span class="planetSearch"> Search Planet </span>
+              <input required type="text" placeholder="Planet search..." />
+              <i class="fa-solid bg-info fa-magnifying-glass desktop_view"></i>
+            </label>
+          </form>
+
+          <!-- AJAX Image call Here -->
+        </div>
       </section>
-
-      <div class="AJAX-planet-image">
-        <form action="">
-          <label for="planetSearch">
-            Search Planet
-            <input type="text" placeholder="Planet search..." />
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </label>
-        </form>
-
-        <!-- AJAX Image call Here -->
-      </div>
     </div>
 
     <script src="js/data.js"></script>
