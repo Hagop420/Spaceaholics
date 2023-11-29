@@ -9,3 +9,65 @@ main#apod-flexbox {
 .stretchedAPODimg {
   width: 100%;
 }
+
+/* AJAX Image explanations */
+
+.explanation-APOD-flex {
+  display: blue;
+  justify-content: center;
+}
+
+.explanation-APOD-flex h2 {
+  text-align: center;
+}
+
+.explanation-APOD-flex .APOD_explanation::first-letter {
+  color: rgb(11, 67, 67);
+  font-family: cursive;
+  font-size: 32px;
+}
+
+/* .space-APOD-content > p.copyright {} */
+
+/* i frames and form for planet search */
+
+.frame-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form {
+  display: flex;
+}
+
+form label {
+  text-align: center;
+  margin: 10px;
+  font-size: 18px;
+}
+
+form input {
+  width: 80vw;
+  padding: 6.5px;
+  border-radius: 0.2rem;
+  border: 0;
+  background: rgb(222, 212, 212);
+  outline-color: lightskyblue;
+}
+
+form input::placeholder {
+  color: #000;
+}
+
+/* font awesome icon styling */
+form i.fa-magnifying-glass {
+  padding: 11.5px;
+  font-size: 18px;
+  transition: 0.4s all ease-in-out;
+}
+
+form i.fa-magnifying-glass:hover {
+  cursor: pointer;
+  opacity: 0.9;
+}

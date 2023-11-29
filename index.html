@@ -27,34 +27,23 @@
   <body>
     <div data-view="entry-form">
       <main id="apod-flexbox">
-        <!-- AJAX APOD NASA img implementation -->
-
-        <!-- flexed explanation -->
-
-        <div class="space-APOD-content">
-          <h2></h2>
-          <p class="APOD_explanation m-2"></p>
-          <p class="copyright float-end"></p>
-        </div>
+        <div class="space-APOD-content"></div>
       </main>
 
       <section class="frame-flex">
-        <!-- <iframe width="500" height="295" class="rounded p-2" src="https://www.youtube.com/embed/AmrrSfiMxGA" title="YouTube video player"
-   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen></iframe> -->
-
-        <!-- <form action="">
-      <label for="planetSearch">
-        Search Planet
-        <input type="text" placeholder="Planet search...">
-        <i class="fa-solid fa-magnifying-glass"></i>
-      </label>
-    </form> -->
-
-        <div class="AJAX-planet-image">
-          <!-- AJAX Calling for planet image -->
-        </div>
+        <iframe
+          width="500"
+          height="295"
+          class="rounded p-2"
+          src="https://www.youtube.com/embed/AmrrSfiMxGA"
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
       </section>
+
+      <div class="AJAX-planet-image">
+        <!-- AJAX Image call Here -->
+      </div>
     </div>
 
     <script src="js/data.js"></script>

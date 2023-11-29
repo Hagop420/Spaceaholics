@@ -4,8 +4,12 @@ const apiKey = '3SfbrMVgduWdKtr1Aecz7Z8dMSYKkAWTejCvL0av';
 const apodImg = document.getElementById('apod-flexbox');
 
 // // APOD image explanation
-const apodImgTitle = document.querySelector('.space-APOD-content h2');
-const apodImgPara = document.querySelector('.space-APOD-content p');
+// const apodImgTitle = document.querySelector('.space-APOD-content h2');
+// const apodImgPara = document.querySelector('.space-APOD-content p');
+
+// call parent to create dom elements
+const explanatons = document.querySelector('.space-APOD-content');
+
 const apodImgcopyrightClaims = document.querySelector(
   '.space-APOD-content > p.copyright',
 );
@@ -21,9 +25,6 @@ function apodImgMain() {
   );
   xhr.responseType = 'json';
   xhr.addEventListener('load', () => {
-    console.log(xhr.status);
-    console.log(xhr.response);
-
     const createImgTag = document.createElement('img');
     createImgTag.setAttribute('src', xhr.response.hdurl);
     createImgTag.className = 'stretchedAPODimg rounded m-1';
@@ -45,28 +46,23 @@ function apodImgExplanation() {
   );
   xhr.responseType = 'json';
   xhr.addEventListener('load', () => {
-    console.log(xhr.status);
-    console.log(xhr.response);
+    // Creating h2 element for the APOD image
+    const h2Creation = document.createElement('h2');
+    h2Creation.className = 'appendingAPODpara';
+    h2Creation.textContent = xhr.response.title;
+    explanatons.appendChild(h2Creation);
 
-    //  Make a text node and insert content of API/Getting the AJAX title
-    const ttlNode = xhr.response.title;
-    apodImgTitle.textContent = ttlNode;
-    console.log(apodImgTitle);
+    // creating the paragraph explaanation for my APOD image
+    const paraCreation = document.createElement('p');
+    paraCreation.className = 'APOD_explanation m-2';
+    paraCreation.textContent = xhr.response.explanation;
+    explanatons.appendChild(paraCreation);
 
-    //  Make a text node and insert content of API/Getting the AJAX Paragraph
-    const paraNode = xhr.response.explanation;
-    apodImgPara.textContent = paraNode;
-
-    // giving the text some padding/margin
-    apodImgPara.className = 'p-1';
-    console.log(apodImgTitle);
-
-    //  Make a text node and insert content of API/Getting the AJAX Paragraph Copyright accessibility
-    const paraNodeCopyright = xhr.response.copyright;
-    const paraNodeCopyrightDate = xhr.response.date;
-
-    apodImgcopyrightClaims.className = 'float-end';
-    apodImgcopyrightClaims.textContent = `© Copyright ${xhr.response.date}`;
+    // creating the copyright footer/P element for my APOD image
+    const copyrightText = document.createElement('p');
+    copyrightText.className = 'copyright float-end';
+    copyrightText.textContent = `© Copyright ${xhr.response.date}`;
+    explanatons.appendChild(copyrightText);
   });
 
   xhr.send();
