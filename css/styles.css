@@ -1,0 +1,11 @@
+main#apod-flexbox {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+
+.stretchedAPODimg {
+  width: 100%;
+}
