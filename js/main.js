@@ -100,3 +100,5 @@ function userTypeInput(e) {
 }
 
 userTypeInput();
+
+// comment parsed for git purposes
