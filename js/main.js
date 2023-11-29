@@ -1,7 +1,7 @@
 // API Key global access
 const apiKey = '3SfbrMVgduWdKtr1Aecz7Z8dMSYKkAWTejCvL0av';
 
-const apodImg = document.getElementById('apod-flexbox');
+const apodImg = document.querySelector('.apod-flexbox');
 
 // // APOD image explanation
 // const apodImgTitle = document.querySelector('.space-APOD-content h2');
@@ -38,7 +38,7 @@ function apodImgMain() {
   xhr.addEventListener('load', () => {
     const createImgTag = document.createElement('img');
     createImgTag.setAttribute('src', xhr.response.hdurl);
-    createImgTag.className = 'stretchedAPODimg rounded m-1';
+    createImgTag.className = 'stretchedAPODimg rounded width_desktop_styling';
     apodImg.appendChild(createImgTag);
   });
 
@@ -61,13 +61,13 @@ function apodImgExplanation() {
 
     // creating the paragraph explaanation for my APOD image
     const paraCreation = document.createElement('p');
-    paraCreation.className = 'APOD_explanation m-2';
+    paraCreation.className = 'APOD_explanation APOD_explanation_desktop_view';
     paraCreation.textContent = xhr.response.explanation;
     explanatons.appendChild(paraCreation);
 
     // creating the copyright footer/P element for my APOD image
     const copyrightText = document.createElement('p');
-    copyrightText.className = 'copyright float-end';
+    copyrightText.className = 'copyright copyright-left';
     copyrightText.textContent = `© Copyright ${xhr.response.date}`;
     explanatons.appendChild(copyrightText);
   });

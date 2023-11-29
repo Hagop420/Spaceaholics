@@ -1,4 +1,4 @@
-main#apod-flexbox {
+.apod-flexbox {
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
@@ -12,19 +12,15 @@ main#apod-flexbox {
 
 /* AJAX Image explanations */
 
-.explanation-APOD-flex {
-  display: blue;
-  justify-content: center;
-}
-
-.explanation-APOD-flex h2 {
-  text-align: center;
-}
-
-.explanation-APOD-flex .APOD_explanation::first-letter {
+.APOD_explanation::first-letter {
   color: rgb(11, 67, 67);
   font-family: cursive;
   font-size: 32px;
+}
+
+.copyright {
+  float: right;
+  margin: 2px;
 }
 
 /* .space-APOD-content > p.copyright {} */
@@ -70,4 +66,36 @@ form i.fa-magnifying-glass {
 form i.fa-magnifying-glass:hover {
   cursor: pointer;
   opacity: 0.9;
+}
+
+@media screen and (min-width: 768px) {
+  .APOD-stretched {
+    flex-direction: row-reverse;
+    align-items: flex-start;
+  }
+
+  .width_desktop_styling {
+    height: 300px;
+  }
+
+  .APOD_explanation_desktop_view {
+    width: 70%;
+    font-size: 11px;
+    padding: 5px;
+  }
+
+  .appendingAPODpara {
+    font-weight: bold;
+    margin: 2px;
+    font-size: 18px;
+  }
+
+  .APOD_explanation_desktop_view,
+  .appendingAPODpara {
+    margin: 3px;
+  }
+
+  .copyright-left {
+    float: left;
+  }
 }
