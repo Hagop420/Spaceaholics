@@ -1,9 +1,15 @@
+/* body background image gif abckground styling and more */
+
+body {
+  background-color: rgb(43, 200, 200);
+}
+
 .apod-flexbox {
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
   justify-content: center;
-  margin: 10px;
+  padding: 5px;
 }
 
 .stretchedAPODimg {
@@ -15,7 +21,7 @@
 /* AJAX Image explanations */
 
 .APOD_explanation::first-letter {
-  color: rgb(11, 67, 67);
+  color: rgb(235, 240, 240);
   font-family: cursive;
   font-size: 32px;
 }
@@ -35,15 +41,19 @@
   align-items: center;
 }
 
+.form-planet-finder {
+  margin: auto;
+}
+
 form.form-planet-finder input {
-  background-color: lightcyan;
+  background-color: darkturquoise;
   width: 96.5%;
   color: #000;
   display: inline-block;
 }
 
 form.form-planet-finder input::placeholder {
-  color: yellow;
+  color: dark;
 }
 
 /* Planet api pull image styling */
@@ -58,79 +68,55 @@ form.form-planet-finder input::placeholder {
 }
 
 /* font awesome icon styling */
-form i.fa-magnifying-glass {
-  padding: 10px;
+form .span_icon_glass {
+  padding: 6.5px 10px;
+  border-radius: 0.3rem;
   font-size: 17.1px;
   transition: 0.4s all ease-in-out;
 }
 
-form i.fa-magnifying-glass:hover {
+form .span_icon_glass:hover {
   cursor: pointer;
   opacity: 0.9;
 }
 
+/* star img creation: favorite's selector */
+
 @media screen and (min-width: 768px) {
-  .APOD-stretched {
+  .apod-flexbox {
     flex-direction: row-reverse;
-    align-items: flex-start;
-    justify-content: space-around;
+    padding: 1px;
   }
+
+  /* APOD image */
 
   .width_desktop_styling {
-    height: 400px;
+    height: 500px;
+    width: 100%;
   }
 
-  /* APOD img explanation title */
-  .appendingAPODpara {
-    font-weight: bold;
-    margin: 2px;
-    font-size: 18px;
-  }
-
-  /* APOD img paragraph explanation styling */
-
-  .APOD_explanation_desktop_view {
-    font-size: 11px;
-    padding: 5px;
-  }
-
-  .copyright-left {
-    float: left;
-  }
-
-  form {
+  /* AJAX APOD content */
+  .space-APOD-content {
+    min-width: 420px;
     margin: 10px;
   }
 
-  form i.fa-magnifying-glass {
-    float: left;
-    margin-top: 30px;
-    padding: 6.5px;
-  }
-
-  /* font awesome icon styling */
-
-  .desktop_view {
-    padding: 20px;
-  }
-
-  .frame_desktop {
+  /* section thats targeting the input APOD */
+  .frame-flex {
     flex-direction: row-reverse;
     justify-content: space-around;
-
-    /* margin: */
+    margin: 10px;
   }
 
-  .planetSearch {
-    display: flex;
-    flex-direction: column;
-    text-align: left !important;
+  .frame-flex input {
+    display: block;
   }
 
-  /* enlarging the iframe */
+  /* iframe */
   iframe {
-    width: 600px;
-    margin-left: 10px;
-    height: 350px;
+    /* width: 300px; */
+    height: 300px;
+
+    /* margin: 15px; */
   }
 }

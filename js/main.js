@@ -131,6 +131,12 @@ magnifying_glass.addEventListener('click', () => {
 
     planetImagesCall.appendChild(lightbox);
     lightbox.appendChild(imgElement);
+
+    // Creation of the small star favorite
+
+    const starMaker = document.createElement('div');
+    starMaker.className = 'star_making_using_css';
+    planetImagesCall.appendChild(starMaker);
   });
   xhr.send();
 });
