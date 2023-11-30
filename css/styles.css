@@ -10,6 +10,8 @@
   width: 100%;
 }
 
+/* Main form styling/giving it a class of block and more */
+
 /* AJAX Image explanations */
 
 .APOD_explanation::first-letter {
@@ -31,6 +33,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+form.form-planet-finder input {
+  background-color: rgb(105, 105, 136);
+  width: 96.5%;
+  display: inline-block;
+}
+
+form.form-planet-finder input::placeholder {
+  color: yellow;
 }
 
 /* Planet api pull image styling */
