@@ -80,8 +80,6 @@ form .span_icon_glass:hover {
   opacity: 0.9;
 }
 
-/* star img creation: favorite's selector */
-
 @media screen and (min-width: 768px) {
   .apod-flexbox {
     flex-direction: row-reverse;
