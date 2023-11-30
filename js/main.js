@@ -27,6 +27,8 @@ magnifying_glass.classList.add('fa-solid');
 // magnifying_glass.classList.add('m-1');
 magnifying_glass.classList.add('rounded');
 
+const starBtn = document.querySelector('.span_icon_glass');
+
 // APOD Main Img AJAX Call
 function apodImgMain() {
   // API request creation with XMLHTTPrequest
@@ -77,9 +79,9 @@ apodImgExplanation();
 
 // Calling the Image/Video API
 
-magnifying_glass.addEventListener('click', () => {
+starBtn.addEventListener('click', () => {
   const img = document.querySelector('.planet_img_api');
-  console.log(typeof img);
+
   if (img) {
     img.remove();
   }
@@ -101,7 +103,7 @@ magnifying_glass.addEventListener('click', () => {
       xhr.response.collection.items[randomNum].links[0].href,
     );
     imgElement.className = 'd-block rounded planet_img_api';
-    imgElement.height = '230';
+    imgElement.height = '200';
 
     // This A tag will wrap around the img tag and show the image as a lightbox
     const lightbox = document.createElement('a');
@@ -116,28 +118,67 @@ magnifying_glass.addEventListener('click', () => {
     );
 
     // Setting the current images content in the lightbox
-    // lightbox.setAttribute('data-title' ,  xhr.response.collection.items[randomNum].data[0].href)
-    // lightbox.setAttribute('data-title' ,  xhr.response.collection.items[randomNum].albums)
 
     xhr.response.collection.items[randomNum].data.forEach((inside_data) => {
-      lightbox.setAttribute('data-title', `${inside_data.keywords[0]}`);
+      lightbox.setAttribute(
+        'data-title',
+        `${inside_data.keywords[0]} / ${inside_data.title} <span class='d-block'>
+        ${inside_data.description_508}
+      </span>
+      <span class='d-block'>
+        Captured By: ${inside_data.secondary_creator}
+      </span>`,
+      );
     });
-
-    // testing it out
-
-    xhr.response.collection.items[randomNum].data.forEach((fo) =>
-      console.log(fo.title),
-    );
 
     planetImagesCall.appendChild(lightbox);
     lightbox.appendChild(imgElement);
 
+    // Getting the title/info about the image - h3
+
+    const headerDescribe = document.createElement('h3');
+
+    headerDescribe.className = 'header_Img_ttl text-center';
+    headerDescribe.textContent =
+      xhr.response.collection.items[randomNum].data[0].title;
+
+    // Getting the para/info about the image - p
+
+    const paraDescribe = document.createElement('p');
+
+    paraDescribe.className = 'para_img_ttl';
+    paraDescribe.textContent =
+      xhr.response.collection.items[randomNum].data[0].description_508;
+
+    const header_title = document.querySelector('.header_Img_ttl');
+    const image_description = document.querySelector('.para_img_ttl');
+
+    if (header_title) {
+      header_title.remove();
+    }
+    if (image_description) {
+      image_description.remove();
+    }
+    // );
+
+    planetImagesCall.appendChild(headerDescribe);
+    planetImagesCall.appendChild(paraDescribe);
+
+    // info ending
+
     // Creation of the small star favorite
 
-    const starMaker = document.createElement('div');
-    starMaker.className = 'star_making_using_css';
+    const star = document.querySelector('.fa-star');
+
+    const starMaker = document.createElement('i');
+    starMaker.className = 'fas fa-star fs-3';
     planetImagesCall.appendChild(starMaker);
+
+    if (star) {
+      star.remove();
+    }
   });
+
   xhr.send();
 });
 // comment parsed for git purposes
