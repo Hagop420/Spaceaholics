@@ -27,7 +27,9 @@ magnifying_glass.classList.add('fa-solid');
 // magnifying_glass.classList.add('m-1');
 magnifying_glass.classList.add('rounded');
 
-const starBtn = document.querySelector('.span_icon_glass');
+const glassBtn = document.querySelector('.span_icon_glass');
+
+const starBtn = document.querySelector('.fa-star');
 
 // APOD Main Img AJAX Call
 function apodImgMain() {
@@ -62,7 +64,7 @@ function apodImgExplanation() {
     // creating the paragraph explaanation for my APOD image
     const paraCreation = document.createElement('p');
     paraCreation.className = 'APOD_explanation APOD_explanation_desktop_view';
-    paraCreation.textContent = xhr.response.explanation;
+    paraCreation.innerHTML = xhr.response.explanation;
     explanatons.appendChild(paraCreation);
 
     // creating the copyright footer/P element for my APOD image
@@ -79,7 +81,7 @@ apodImgExplanation();
 
 // Calling the Image/Video API
 
-starBtn.addEventListener('click', () => {
+glassBtn.addEventListener('click', () => {
   const img = document.querySelector('.planet_img_api');
 
   if (img) {
@@ -96,12 +98,14 @@ starBtn.addEventListener('click', () => {
     const randomNum = Math.floor(
       Math.random() * xhr.response.collection.items.length,
     );
+    const numKeyword = Math.floor(Math.random() * 100 + 1);
 
     const imgElement = document.createElement('img');
     imgElement.setAttribute(
       'src',
       xhr.response.collection.items[randomNum].links[0].href,
     );
+
     imgElement.className = 'd-block rounded planet_img_api';
     imgElement.height = '200';
 
@@ -122,13 +126,15 @@ starBtn.addEventListener('click', () => {
     xhr.response.collection.items[randomNum].data.forEach((inside_data) => {
       lightbox.setAttribute(
         'data-title',
-        `${inside_data.keywords[0]} / ${inside_data.title} <span class='d-block'>
-        ${inside_data.description_508}
-      </span>
-      <span class='d-block'>
-        Captured By: ${inside_data.secondary_creator}
-      </span>`,
+        `${inside_data.title}
+      <span class='d-block'>Center:${inside_data.center}</span>
+      <span class='d-block'>Date created: ${inside_data.date_created}</span>
+      <span class='d-block'>Planet Data: ${inside_data.keywords}</span>
+      <span class='d-block'>Location: ${inside_data.location}'></span>
+      <span class='d-block'>Photographer: ${inside_data.Photographer}'></span>
+      <span class='d-block'>nasa_id: ${inside_data.nasa_id}'></span>`,
       );
+      console.log(inside_data);
     });
 
     planetImagesCall.appendChild(lightbox);
@@ -146,9 +152,9 @@ starBtn.addEventListener('click', () => {
 
     const paraDescribe = document.createElement('p');
 
-    paraDescribe.className = 'para_img_ttl';
+    paraDescribe.className = 'para_img_ttl img_des_min_w';
     paraDescribe.textContent =
-      xhr.response.collection.items[randomNum].data[0].description_508;
+      xhr.response.collection.items[randomNum].data[0].description;
 
     const header_title = document.querySelector('.header_Img_ttl');
     const image_description = document.querySelector('.para_img_ttl');
@@ -171,7 +177,7 @@ starBtn.addEventListener('click', () => {
     const star = document.querySelector('.fa-star');
 
     const starMaker = document.createElement('i');
-    starMaker.className = 'fas fa-star fs-3';
+    starMaker.className = 'fas fa-star fs-4 m-auto text-center d-block';
     planetImagesCall.appendChild(starMaker);
 
     if (star) {
@@ -182,3 +188,5 @@ starBtn.addEventListener('click', () => {
   xhr.send();
 });
 // comment parsed for git purposes
+
+starBtn.addEventListener('click', () => {});

@@ -1,7 +1,7 @@
 /* body background image gif abckground styling and more */
 
 body {
-  background-color: rgb(43, 200, 200);
+  background-color: rgb(43, 200, 200) !important;
 }
 
 .apod-flexbox {
@@ -31,25 +31,34 @@ body {
   margin: 2px;
 }
 
+iframe {
+  padding: 10px;
+  border-radius: 1rem;
+}
+
 /* .space-APOD-content > p.copyright {} */
 
 /* i frames and form for planet search */
 
 .frame-flex {
   display: flex;
+  margin: 15px;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .form-planet-finder {
-  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 form.form-planet-finder input {
-  background-color: darkturquoise;
-  width: 96.5%;
+  background-color: rgb(221, 255, 0);
+  width: 95%;
   color: #000;
-  display: inline-block;
+  margin: auto;
 }
 
 form.form-planet-finder input::placeholder {
@@ -68,10 +77,12 @@ form.form-planet-finder input::placeholder {
 }
 
 /* font awesome icon styling */
+
 form .span_icon_glass {
-  padding: 6.5px 10px;
+  padding: 5px 10px;
   border-radius: 0.3rem;
   font-size: 17.1px;
+  margin-top: 20px;
   transition: 0.4s all ease-in-out;
 }
 
@@ -80,10 +91,42 @@ form .span_icon_glass:hover {
   opacity: 0.9;
 }
 
-@media screen and (min-width: 768px) {
+/* Searched planet description/s */
+.img_des_min_w {
+  text-align: center;
+  min-width: 500px;
+  margin: 5px;
+}
+
+/* Saving to the favorties page styling */
+
+.fa-star {
+  text-align: center;
+  display: none;
+  cursor: pointer;
+  transition: 0.3s all ease-in-out;
+}
+
+.fa-star:hover {
+  opacity: 0.8;
+}
+
+.frame-top {
+  position: relative;
+  bottom: 300px;
+}
+
+/* Desktop Design */
+
+@media only screen and (min-width: 768px) {
   .apod-flexbox {
     flex-direction: row-reverse;
-    padding: 1px;
+    margin: 10px;
+  }
+
+  .frame-flex {
+    flex-direction: row-reverse;
+    justify-content: space-between;
   }
 
   /* APOD image */
@@ -95,26 +138,29 @@ form .span_icon_glass:hover {
 
   /* AJAX APOD content */
   .space-APOD-content {
-    min-width: 420px;
-    margin: 10px;
+    min-width: 320px;
+    margin: 15px;
   }
 
-  /* section thats targeting the input APOD */
-  .frame-flex {
-    flex-direction: row-reverse;
-    justify-content: space-around;
-    margin: 10px;
-  }
+  /* form */
 
-  .frame-flex input {
+  .form-planet-finder {
+    margin: auto;
     display: block;
+    justify-content: center;
+    align-items: center;
   }
 
-  /* iframe */
-  iframe {
-    /* width: 300px; */
-    height: 300px;
+  form .span_icon_glass {
+    display: inline-flex;
+    border-radius: 0.3rem;
+    font-size: 15px;
 
-    /* margin: 15px; */
+    /* margin-left: -20px; */
+    transition: 0.4s all ease-in-out;
+  }
+
+  form.form-planet-finder input {
+    width: 50%;
   }
 }
