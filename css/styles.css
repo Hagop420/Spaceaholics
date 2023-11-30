@@ -1,0 +1,120 @@
+/* body background image gif abckground styling and more */
+
+body {
+  background-color: rgb(43, 200, 200);
+}
+
+.apod-flexbox {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+}
+
+.stretchedAPODimg {
+  width: 100%;
+}
+
+/* Main form styling/giving it a class of block and more */
+
+/* AJAX Image explanations */
+
+.APOD_explanation::first-letter {
+  color: rgb(235, 240, 240);
+  font-family: cursive;
+  font-size: 32px;
+}
+
+.copyright {
+  float: right;
+  margin: 2px;
+}
+
+/* .space-APOD-content > p.copyright {} */
+
+/* i frames and form for planet search */
+
+.frame-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-planet-finder {
+  margin: auto;
+}
+
+form.form-planet-finder input {
+  background-color: darkturquoise;
+  width: 96.5%;
+  color: #000;
+  display: inline-block;
+}
+
+form.form-planet-finder input::placeholder {
+  color: dark;
+}
+
+/* Planet api pull image styling */
+.planet_img_api {
+  margin: 10px auto;
+}
+
+/* When the Img API gets called and the user hover's the image show the anchor tag/styling */
+
+.CSS_styled_lightbox_cursor {
+  cursor: pointer;
+}
+
+/* font awesome icon styling */
+form .span_icon_glass {
+  padding: 6.5px 10px;
+  border-radius: 0.3rem;
+  font-size: 17.1px;
+  transition: 0.4s all ease-in-out;
+}
+
+form .span_icon_glass:hover {
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+@media screen and (min-width: 768px) {
+  .apod-flexbox {
+    flex-direction: row-reverse;
+    padding: 1px;
+  }
+
+  /* APOD image */
+
+  .width_desktop_styling {
+    height: 500px;
+    width: 100%;
+  }
+
+  /* AJAX APOD content */
+  .space-APOD-content {
+    min-width: 420px;
+    margin: 10px;
+  }
+
+  /* section thats targeting the input APOD */
+  .frame-flex {
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    margin: 10px;
+  }
+
+  .frame-flex input {
+    display: block;
+  }
+
+  /* iframe */
+  iframe {
+    /* width: 300px; */
+    height: 300px;
+
+    /* margin: 15px; */
+  }
+}
