@@ -94,9 +94,7 @@ magnifying_glass.addEventListener('click', () => {
     const randomNum = Math.floor(
       Math.random() * xhr.response.collection.items.length,
     );
-    console.log(xhr.response.collection.items);
 
-    const lightbox = document.createElement('a');
     const imgElement = document.createElement('img');
     imgElement.setAttribute(
       'src',
@@ -104,17 +102,35 @@ magnifying_glass.addEventListener('click', () => {
     );
     imgElement.className = 'd-block rounded planet_img_api';
     imgElement.height = '230';
-    planetImagesCall.appendChild(imgElement);
 
-    // Wrapping img's inside a lightbox anchor element
+    // This A tag will wrap around the img tag and show the image as a lightbox
+    const lightbox = document.createElement('a');
     lightbox.setAttribute('data-lightbox', 'cases');
+    lightbox.className = ' CSS_styled_lightbox_cursor';
+
+    // Main Content
+    // Linking it to open the lightbox to the xhr image
+    lightbox.setAttribute(
+      'href',
+      xhr.response.collection.items[randomNum].links[0].href,
+    );
+
+    // Setting the current images content in the lightbox
+    // lightbox.setAttribute('data-title' ,  xhr.response.collection.items[randomNum].data[0].href)
+    // lightbox.setAttribute('data-title' ,  xhr.response.collection.items[randomNum].albums)
+
+    xhr.response.collection.items[randomNum].data.forEach((inside_data) => {
+      lightbox.setAttribute('data-title', `${inside_data.keywords[0]}`);
+    });
+
+    // testing it out
+
+    xhr.response.collection.items[randomNum].data.forEach((fo) =>
+      console.log(fo.title),
+    );
+
     planetImagesCall.appendChild(lightbox);
-
-    // console.log(xhr.response.collection.items)
-
-    if (inputSearch) {
-      // document.body.style.display = 'none'
-    }
+    lightbox.appendChild(imgElement);
   });
   xhr.send();
 });

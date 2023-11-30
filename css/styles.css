@@ -38,29 +38,10 @@
   margin: 10px auto;
 }
 
-/*
+/* When the Img API gets called and the user hover's the image show the anchor tag/styling */
 
-form {
-  display: flex;
-}
-
-form label {
-  text-align: center;
-  margin: 10px;
-  font-size: 18px;
-}
-
-form input {
-  width: 80vw;
-  padding: 6.5px;
-  border-radius: 0.2rem;
-  border: 0;
-  background: rgb(222, 212, 212);
-  outline-color: lightskyblue;
-}
-
-form input::placeholder {
-  color: #000;
+.CSS_styled_lightbox_cursor {
+  cursor: pointer;
 }
 
 /* font awesome icon styling */
