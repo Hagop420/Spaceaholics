@@ -29,7 +29,7 @@ magnifying_glass.classList.add('rounded');
 
 const glassBtn = document.querySelector('.span_icon_glass');
 
-const starBtn = document.querySelector('.fa-star');
+
 
 // APOD Main Img AJAX Call
 function apodImgMain() {
@@ -109,6 +109,10 @@ glassBtn.addEventListener('click', () => {
     imgElement.className = 'd-block rounded planet_img_api';
     imgElement.height = '200';
 
+    const favoritePlanetsCall = document.createElement('div')
+    favoritePlanetsCall.className = 'favoritePlanets'
+
+
     // This A tag will wrap around the img tag and show the image as a lightbox
     const lightbox = document.createElement('a');
     lightbox.setAttribute('data-lightbox', 'cases');
@@ -121,6 +125,7 @@ glassBtn.addEventListener('click', () => {
       xhr.response.collection.items[randomNum].links[0].href,
     );
 
+favoritePlanetsCall.appendChild(lightbox)
     // Setting the current images content in the lightbox
 
     xhr.response.collection.items[randomNum].data.forEach((inside_data) => {
@@ -137,11 +142,17 @@ glassBtn.addEventListener('click', () => {
       console.log(inside_data);
     });
 
-    planetImagesCall.appendChild(lightbox);
+    planetImagesCall.appendChild(favoritePlanetsCall);
     lightbox.appendChild(imgElement);
 
     // Getting the title/info about the image - h3
 
+
+    // making of the content to wrap for the favorites
+//     const favoritesMakerSec = document.createElement('div')
+//     favoritesMakerSec.className = 'favoritePlanetInformation'
+
+// lightbox.appendChild(favoritesMakerSec)
     const headerDescribe = document.createElement('h3');
 
     headerDescribe.className = 'header_Img_ttl text-center';
@@ -167,8 +178,8 @@ glassBtn.addEventListener('click', () => {
     }
     // );
 
-    planetImagesCall.appendChild(headerDescribe);
-    planetImagesCall.appendChild(paraDescribe);
+    favoritePlanetsCall.appendChild(headerDescribe);
+    favoritePlanetsCall.appendChild(paraDescribe);
 
     // info ending
 
@@ -177,16 +188,51 @@ glassBtn.addEventListener('click', () => {
     const star = document.querySelector('.fa-star');
 
     const starMaker = document.createElement('i');
-    starMaker.className = 'fas fa-star fs-4 m-auto text-center d-block';
-    planetImagesCall.appendChild(starMaker);
+    starMaker.className = 'fas fa-star fs-4 m-auto text-center d-block fs-3';
+    favoritePlanetsCall.appendChild(starMaker);
 
+    // star query if statment clause
     if (star) {
       star.remove();
     }
+
+
+    starMaker.addEventListener('click' , () => {
+      // Adding classes to the stars
+      starMaker.classList.add('starolor')
+      starMaker.classList.add('starPointer')
+
+
+
+
+
+
+
+
+
+      // DOM content creation's
+
+      // renderEntriy function create DOM tree structure
+
+    })
+
   });
 
   xhr.send();
 });
-// comment parsed for git purposes
 
-starBtn.addEventListener('click', () => {});
+
+
+
+// entries is the form on bottom
+function viewSwap(entries) {
+  if (entries === 'entries') {
+    $entriesBottom.classList.remove('hidden');
+    $entryForm.classList.add('hidden');
+
+    // entry-form is the entry on top
+  } else if (entries === 'entry-form') {
+    $entryForm.classList.remove('hidden');
+    $entriesBottom.classList.add('hidden');
+  }
+}

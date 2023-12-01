@@ -42,8 +42,7 @@ iframe {
 
 .frame-flex {
   display: flex;
-  margin: 15px;
-  flex-direction: column;
+  flex-direction: row-reverse;
   align-items: center;
   justify-content: center;
 }
@@ -110,6 +109,8 @@ form .span_icon_glass:hover {
 .fa-star:hover {
   opacity: 0.8;
 }
+.starolor { color: yellow; }
+.starPointer { cursor: pointer; }
 
 .frame-top {
   position: relative;
@@ -126,7 +127,8 @@ form .span_icon_glass:hover {
 
   .frame-flex {
     flex-direction: row-reverse;
-    justify-content: space-between;
+    margin: 5px;
+    justify-content: space-around;
   }
 
   /* APOD image */
@@ -146,7 +148,7 @@ form .span_icon_glass:hover {
 
   .form-planet-finder {
     margin: auto;
-    display: block;
+    display: inline;
     justify-content: center;
     align-items: center;
   }
@@ -161,6 +163,12 @@ form .span_icon_glass:hover {
   }
 
   form.form-planet-finder input {
-    width: 50%;
+    /* width: 50%; */
+  }
+
+  /* planet description */
+
+  .img_des_min_w {
+    text-align: left;
   }
 }
