@@ -1,0 +1,156 @@
+/* body background image gif abckground styling and more */
+
+body {
+  background-color: rgb(43, 200, 200);
+}
+
+.apod-flexbox {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+}
+
+/* APOD explained flexbox */
+
+.space-APOD-content {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* bottom planet image API call */
+.planet_img_api {
+  margin: auto;
+}
+
+/* copyright */
+.copyright {
+  align-self: flex-end;
+  padding: 5px;
+}
+
+.stretchedAPODimg {
+  width: 100%;
+}
+
+.APOD_explanation {
+  text-align: center;
+}
+
+.APOD_explanation::first-letter {
+  color: rgb(0, 242, 255);
+  font-family: cursive;
+  font-size: 32px;
+}
+
+/* bottom frame flexbox */
+.frame-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* homepage form styles */
+.form-planet-finder {
+  margin: 10px;
+
+  /* display: block; */
+}
+
+.form-planet-finder input {
+  background-color: yellow;
+  display: block;
+  margin: 10px;
+  width: 60vw;
+  outline-color: #000;
+  font-weight: bold;
+}
+
+/* homepage's form's magnyfing glass button */
+.span_icon_glass {
+  padding: 5px;
+}
+
+/* homepages iframe styles */
+.frame-flex iframe {
+  height: 400px;
+  width: 500px;
+}
+
+/* AJAX call for the image */
+.AJAX-planet-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+  .apod-flexbox {
+    flex-direction: row-reverse;
+  }
+
+  /* bottom frame flex */
+  .frame-flex {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  /* apod image */
+
+  .stretchedAPODimg {
+    height: 500px;
+    padding: 10px;
+  }
+
+  /* APOD content */
+  .APOD_explanation {
+    text-align: left;
+  }
+
+  /* APOD image explanation */
+  .space-APOD-content {
+    min-width: 600px;
+    align-items: flex-start;
+    justify-content: space-around;
+  }
+
+  /* copyright */
+  .copyright {
+    align-self: flex-start;
+    padding: 5px;
+  }
+
+  /* homepage form styles */
+  .form-planet-finder {
+    margin: 10px;
+
+    /* display: block; */
+  }
+
+  .form-planet-finder input {
+    background-color: yellow;
+    display: block;
+    margin: 10px;
+    width: 25vw;
+    outline-color: #000;
+    font-weight: bold;
+  }
+
+  /* Planets Faviruts API call */
+
+  /* .favoritePlanets {
+    display: inline-block;
+    position: relative;
+    top: 300px;
+  } */
+
+  /* .header_Img_ttl {
+    display: block !important;
+  } */
+}
