@@ -82,10 +82,14 @@ body {
 
 /* AJAX call for the image */
 .AJAX-planet-image {
+  margin-top: 2rem;
+}
+
+.favoritePlanets {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  margin: 10px;
+  justify-content: space-around;
 }
 
 @media screen and (min-width: 768px) {
@@ -96,7 +100,7 @@ body {
   /* bottom frame flex */
   .frame-flex {
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
     align-items: center;
     justify-content: space-around;
   }
@@ -144,13 +148,16 @@ body {
 
   /* Planets Faviruts API call */
 
-  /* .favoritePlanets {
-    display: inline-block;
-    position: relative;
-    top: 300px;
-  } */
-
   /* .header_Img_ttl {
     display: block !important;
   } */
+
+  /* AJAX imgages/descriptions call */
+
+  .favoritePlanets {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    justify-content: space-around;
+  }
 }

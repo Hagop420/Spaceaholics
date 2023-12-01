@@ -27,22 +27,13 @@
   </head>
 
   <body>
-    <div data-view="entryies">
+    <div data-view="entries">
       <main class="apod-flexbox APOD-stretched">
         <div class="space-APOD-content"></div>
       </main>
 
-      <section class="frame-flex frame_desktop">
-        <iframe
-          width="500"
-          height="295"
-          class="rounded"
-          src="https://www.youtube.com/embed/AErpXJq67LM?si=AqYy35CCfH1ix_ys"
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen></iframe>
-
-        <div class="AJAX-planet-image">
+      <section class="frame_desktop">
+        <div class="frame-flex">
           <form action="" class="form-planet-finder">
             <label for="planetSearch">
               <span class="planetSearch"> Search Planet </span>
@@ -52,14 +43,41 @@
                 placeholder="Planet search..."
                 class="p-1 border-0 rounded" />
             </label>
-            <span class="bg-info span_icon_glass">
+            <span class="bg-info span_icon_glass rounded">
               <i class="fa-solid fa-magnifying-glass desktop_view"></i>
             </span>
           </form>
+          <iframe
+            width="500"
+            height="295"
+            class="rounded"
+            src="https://www.youtube.com/embed/AErpXJq67LM?si=AqYy35CCfH1ix_ys"
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+
+        <div class="AJAX-planet-image">
+          <!-- <form action="" class="form-planet-finder">
+            <label for="planetSearch">
+              <span class="planetSearch"> Search Planet </span>
+              <input
+                required
+                type="text"
+                placeholder="Planet search..."
+                class="p-1 border-0 rounded" />
+            </label>
+            <span class="bg-info span_icon_glass rounded">
+              <i class="fa-solid fa-magnifying-glass desktop_view"></i>
+            </span>
+          </form> -->
 
           <!-- AJAX Image call Here -->
         </div>
       </section>
+    </div>
+    <div data-view="favorites">
+      <!-- Creating the list in here -->
     </div>
 
     <!-- JQUERY rendering script for lightbox functionallity -->

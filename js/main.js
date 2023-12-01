@@ -62,7 +62,7 @@ function apodImgExplanation() {
     // creating the paragraph explaanation for my APOD image
     const paraCreation = document.createElement('p');
     paraCreation.className = 'APOD_explanation APOD_explanation_desktop_view';
-    paraCreation.innerHTML = xhr.response.explanation;
+    paraCreation.textContent = xhr.response.explanation;
     explanatons.appendChild(paraCreation);
 
     // creating the copyright footer/P element for my APOD image
@@ -110,10 +110,13 @@ glassBtn.addEventListener('click', () => {
     const favoritePlanetsCall = document.createElement('div');
     favoritePlanetsCall.className = 'favoritePlanets bottomForm';
 
+    const $imageColumn = document.createElement('div');
     // This A tag will wrap around the img tag and show the image as a lightbox
     const lightbox = document.createElement('a');
     lightbox.setAttribute('data-lightbox', 'cases');
     lightbox.className = ' CSS_styled_lightbox_cursor';
+
+    $imageColumn.appendChild(lightbox);
 
     // Main Content
     // Linking it to open the lightbox to the xhr image
@@ -122,7 +125,7 @@ glassBtn.addEventListener('click', () => {
       xhr.response.collection.items[randomNum].links[0].href,
     );
 
-    favoritePlanetsCall.appendChild(lightbox);
+    favoritePlanetsCall.appendChild($imageColumn);
     // Setting the current images content in the lightbox
 
     xhr.response.collection.items[randomNum].data.forEach((inside_data) => {
@@ -131,6 +134,7 @@ glassBtn.addEventListener('click', () => {
         `${inside_data.title}
       <span class='d-block'>Center:${inside_data.center}</span>
       <span class='d-block'>Date created: ${inside_data.date_created}</span>
+      <span class='d-block'>Date created: ${inside_data.description}</span>
       <span class='d-block'>Planet Data: ${inside_data.keywords}</span>
       <span class='d-block'>Location: ${inside_data.location}'></span>
       <span class='d-block'>Photographer: ${inside_data.Photographer}'></span>
@@ -159,9 +163,14 @@ glassBtn.addEventListener('click', () => {
 
     const paraDescribe = document.createElement('p');
 
-    paraDescribe.className = 'para_img_ttl img_des_min_w';
-    paraDescribe.textContent =
-      xhr.response.collection.items[randomNum].data[0].description;
+    paraDescribe.className = 'para_img_ttl img_des_min_w text-center p-3';
+    paraDescribe.textContent = `${xhr.response.collection.items[randomNum].data[0].description}
+      <span class='d-block'>
+      ${xhr.response.collection.items[randomNum].data[0].location}`;
+
+    console.log(xhr.response.collection.items[randomNum].data[0]);
+
+    console.log(xhr.response.collection.items[randomNum].data);
 
     const header_title = document.querySelector('.header_Img_ttl');
     const image_description = document.querySelector('.para_img_ttl');
@@ -174,8 +183,12 @@ glassBtn.addEventListener('click', () => {
     }
     // );
 
-    favoritePlanetsCall.appendChild(headerDescribe);
-    favoritePlanetsCall.appendChild(paraDescribe);
+    const $textColumn = document.createElement('div');
+
+    $textColumn.appendChild(headerDescribe);
+    $textColumn.appendChild(paraDescribe);
+
+    favoritePlanetsCall.appendChild($textColumn);
 
     // info ending
 
@@ -185,7 +198,7 @@ glassBtn.addEventListener('click', () => {
 
     const starMaker = document.createElement('i');
     starMaker.className = 'fas fa-star fs-4 m-auto text-center d-block fs-3';
-    favoritePlanetsCall.appendChild(starMaker);
+    $imageColumn.appendChild(starMaker);
 
     // star query if statment clause
     if (star) {
@@ -208,20 +221,20 @@ glassBtn.addEventListener('click', () => {
 
   xhr.send();
 });
-const entriesbottom = document.querySelector('.bottomForm');
-console.log(entriesbottom.textContent);
+const favoritesView = document.querySelector('[data-view="favorites"]');
+const entriesView = document.querySelector('[data-view="entries"]');
 
 const entriesTop = document.querySelector('.topForm');
 
 // // entries is whole form/swapping the entries
 function viewSwap(entries) {
   if (entries === 'entries') {
-    entriesbottom.classList.remove('hidden');
-    entriesTop.classList.add('hidden');
+    entriesView.classList.remove('hidden');
+    favoritesView.classList.add('hidden');
 
     // entry-form is the entry on top
   } else if (entries === 'favorites') {
-    entriesTop.classList.remove('hidden');
-    entriesbottom.classList.add('hidden');
+    entriesView.classList.add('hidden');
+    favoritesView.classList.remove('hidden');
   }
 }
