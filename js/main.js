@@ -104,7 +104,7 @@ glassBtn.addEventListener('click', () => {
       xhr.response.collection.items[randomNum].links[0].href,
     );
 
-    imgElement.className = 'd-block rounded planet_img_api';
+    imgElement.className = 'd-block rounded planet_img_api rounded';
     imgElement.height = '200';
 
     const favoritePlanetsCall = document.createElement('div');
