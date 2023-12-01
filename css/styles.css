@@ -109,8 +109,12 @@ form .span_icon_glass:hover {
 .fa-star:hover {
   opacity: 0.8;
 }
-.starolor { color: yellow; }
-.starPointer { cursor: pointer; }
+.starColor {
+  color: yellow;
+}
+.starPointer {
+  cursor: pointer;
+}
 
 .frame-top {
   position: relative;

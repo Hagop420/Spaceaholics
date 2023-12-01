@@ -29,8 +29,6 @@ magnifying_glass.classList.add('rounded');
 
 const glassBtn = document.querySelector('.span_icon_glass');
 
-
-
 // APOD Main Img AJAX Call
 function apodImgMain() {
   // API request creation with XMLHTTPrequest
@@ -109,9 +107,8 @@ glassBtn.addEventListener('click', () => {
     imgElement.className = 'd-block rounded planet_img_api';
     imgElement.height = '200';
 
-    const favoritePlanetsCall = document.createElement('div')
-    favoritePlanetsCall.className = 'favoritePlanets'
-
+    const favoritePlanetsCall = document.createElement('div');
+    favoritePlanetsCall.className = 'favoritePlanets';
 
     // This A tag will wrap around the img tag and show the image as a lightbox
     const lightbox = document.createElement('a');
@@ -125,7 +122,7 @@ glassBtn.addEventListener('click', () => {
       xhr.response.collection.items[randomNum].links[0].href,
     );
 
-favoritePlanetsCall.appendChild(lightbox)
+    favoritePlanetsCall.appendChild(lightbox);
     // Setting the current images content in the lightbox
 
     xhr.response.collection.items[randomNum].data.forEach((inside_data) => {
@@ -147,12 +144,11 @@ favoritePlanetsCall.appendChild(lightbox)
 
     // Getting the title/info about the image - h3
 
-
     // making of the content to wrap for the favorites
-//     const favoritesMakerSec = document.createElement('div')
-//     favoritesMakerSec.className = 'favoritePlanetInformation'
+    //     const favoritesMakerSec = document.createElement('div')
+    //     favoritesMakerSec.className = 'favoritePlanetInformation'
 
-// lightbox.appendChild(favoritesMakerSec)
+    // lightbox.appendChild(favoritesMakerSec)
     const headerDescribe = document.createElement('h3');
 
     headerDescribe.className = 'header_Img_ttl text-center';
@@ -196,43 +192,37 @@ favoritePlanetsCall.appendChild(lightbox)
       star.remove();
     }
 
-
-    starMaker.addEventListener('click' , () => {
+    starMaker.addEventListener('click', () => {
       // Adding classes to the stars
-      starMaker.classList.add('starolor')
-      starMaker.classList.add('starPointer')
+      starMaker.classList.add('starColor');
+      starMaker.classList.add('starPointer');
 
-
-
-
-
-
-
-
+      // Calling/utilizing the viewSwap function
+      viewSwap('favorites');
 
       // DOM content creation's
 
       // renderEntriy function create DOM tree structure
-
-    })
-
+    });
   });
+  const entriesbottom = document.querySelector('.favoritePlanets');
 
   xhr.send();
 });
 
+const entriesTop = document.querySelector('.topForm');
+const entriesBottom = document.querySelector('.bottomForm');
+console.log(entriesBottom);
 
-
-
-// entries is the form on bottom
+// // entries is whole form
 function viewSwap(entries) {
   if (entries === 'entries') {
-    $entriesBottom.classList.remove('hidden');
-    $entryForm.classList.add('hidden');
+    entriesTop.classList.add('invisible');
+    entriesBottom.classList.remove('invisible');
 
     // entry-form is the entry on top
-  } else if (entries === 'entry-form') {
-    $entryForm.classList.remove('hidden');
-    $entriesBottom.classList.add('hidden');
+  } else if (entries === 'favorites') {
+    entriesTop.classList.remove('invisible');
+    entriesBottom.classList.add('invisible');
   }
 }
