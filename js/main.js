@@ -108,7 +108,7 @@ glassBtn.addEventListener('click', () => {
     imgElement.height = '200';
 
     const favoritePlanetsCall = document.createElement('div');
-    favoritePlanetsCall.className = 'favoritePlanets';
+    favoritePlanetsCall.className = 'favoritePlanets bottomForm';
 
     // This A tag will wrap around the img tag and show the image as a lightbox
     const lightbox = document.createElement('a');
@@ -205,24 +205,23 @@ glassBtn.addEventListener('click', () => {
       // renderEntriy function create DOM tree structure
     });
   });
-  const entriesbottom = document.querySelector('.favoritePlanets');
 
   xhr.send();
 });
+const entriesbottom = document.querySelector('.bottomForm');
+console.log(entriesbottom.textContent);
 
 const entriesTop = document.querySelector('.topForm');
-const entriesBottom = document.querySelector('.bottomForm');
-console.log(entriesBottom);
 
-// // entries is whole form
+// // entries is whole form/swapping the entries
 function viewSwap(entries) {
   if (entries === 'entries') {
-    entriesTop.classList.add('invisible');
-    entriesBottom.classList.remove('invisible');
+    entriesbottom.classList.remove('hidden');
+    entriesTop.classList.add('hidden');
 
     // entry-form is the entry on top
   } else if (entries === 'favorites') {
-    entriesTop.classList.remove('invisible');
-    entriesBottom.classList.add('invisible');
+    entriesTop.classList.remove('hidden');
+    entriesbottom.classList.add('hidden');
   }
 }
