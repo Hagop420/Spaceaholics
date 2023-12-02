@@ -9,6 +9,25 @@
 .row {
   display: flex;
 }
+
 ul {
   list-style: none;
+}
+
+/* favorites page in mobile firsst design */
+
+/* favorites viiewSwap listings */
+.planetBar {
+  height: 100px;
+  margin: auto;
+  text-align: center;
+  background-image: url('../images/solarMenu.webp');
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.appendingFavoritePlanetsParent {
+  display: block;
+  margin: auto;
+  text-align: center;
 }
