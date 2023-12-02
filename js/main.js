@@ -30,7 +30,6 @@ magnifying_glass.classList.add('rounded');
 const glassBtn = document.querySelector('.span_icon_glass');
 
 // page favoite info
-const planetListUl = document.querySelector('.planetFavoriteList');
 
 // APOD Main Img AJAX Call
 function apodImgMain() {
@@ -166,7 +165,7 @@ glassBtn.addEventListener('click', () => {
 
     const paraDescribe = document.createElement('p');
 
-    paraDescribe.className = 'para_img_ttl img_des_min_w text-center p-3';
+    paraDescribe.className = 'para_img_ttl img_des_min_w p-3';
     paraDescribe.textContent = `${xhr.response.collection.items[randomNum].data[0].description}
 
      `;
@@ -244,3 +243,55 @@ function viewSwap(entries) {
     favoritesView.classList.remove('hidden');
   }
 }
+
+viewSwap('favorites');
+
+// my DOM tree favorite lists collection list
+
+const renderEntry = () => {
+  // create the li element dom tree
+
+  const $liCreation = document.createElement('div');
+  $liCreation.className = 'column';
+
+  // div element creation
+
+  const $div = document.createElement('ul');
+  $div.className = 'm-auto text-center';
+  // div 2 creation
+
+  const $div2 = document.createElement('div');
+  $div2.className = 'column-half';
+
+  // img element creation
+
+  const $imgDomTree = document.createElement('img');
+  $imgDomTree.setAttribute(
+    'src',
+    'https://www.sherdog.com/image_crop/200/300/_images/fighter/20140911080402_1MG_4005.JPG',
+  );
+  $imgDomTree.setAttribute('alt', 'img_from_Dom');
+
+  // p one element creation
+  const $h1 = document.createElement('p');
+  $h1.className = 'bold appnedHtwo';
+  $h1.textContent = 'here is a paragraph';
+
+  // p two element creation
+  const $p2 = document.createElement('i');
+  $p2.className = 'appendChildFromJs';
+  $p2.textContent = 2;
+  // appending to the DOM with appendChild
+
+  $liCreation.appendChild($div);
+  $liCreation.appendChild($div2);
+  $liCreation.appendChild($imgDomTree);
+  $liCreation.appendChild($h1);
+  $liCreation.appendChild($p2);
+
+  //  returrns the li element with all the dom nodes/creation
+
+  return $liCreation;
+};
+
+console.log(renderEntry());

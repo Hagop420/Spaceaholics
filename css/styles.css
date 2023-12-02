@@ -1,7 +1,7 @@
 /* body background image gif abckground styling and more */
 
 body {
-  background-color: rgb(43, 200, 200);
+  background-color: rgb(0, 255, 255) !important;
 }
 
 .apod-flexbox {
@@ -24,6 +24,9 @@ body {
 /* bottom planet image API call */
 .planet_img_api {
   margin: auto;
+  display: flex;
+  justify-content: center;
+  height: 250px;
 }
 
 /* copyright */
@@ -82,7 +85,7 @@ body {
 
 /* AJAX call for the image */
 .AJAX-planet-image {
-  margin-top: 2rem;
+  margin-top: 1.3rem;
 }
 
 .favoritePlanets {
@@ -99,16 +102,31 @@ body {
   align-items: center;
 }
 
-/* favorite API planet img */
+.mainInfoPlanetFlex p {
+  text-align: center;
+}
+
+.header_Img_ttl {
+  text-align: center;
+}
+
+.para_img_ttl {
+  text-align: center;
+}
+
+/* when star is clicked move to the favorite's page */
+
+.fa-star {
+  margin: 5px;
+  display: none;
+}
+
+/* favorite's page API planet img */
 .mainInfoPlanetFlex img {
   margin: auto;
   justify-content: center;
   display: block;
   height: 300px;
-}
-
-.mainInfoPlanetFlex p {
-  text-align: center;
 }
 
 @media screen and (min-width: 768px) {
@@ -129,11 +147,6 @@ body {
   .stretchedAPODimg {
     height: 500px;
     padding: 10px;
-  }
-
-  /* APOD content */
-  .APOD_explanation {
-    text-align: left;
   }
 
   /* APOD image explanation */
