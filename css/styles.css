@@ -49,7 +49,7 @@ body {
 /* bottom frame flexbox */
 .frame-flex {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   align-items: center;
 }
 
@@ -92,6 +92,25 @@ body {
   justify-content: space-around;
 }
 
+.mainInfoPlanetFlex {
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* favorite API planet img */
+.mainInfoPlanetFlex img {
+  margin: auto;
+  justify-content: center;
+  display: block;
+  height: 300px;
+}
+
+.mainInfoPlanetFlex p {
+  text-align: center;
+}
+
 @media screen and (min-width: 768px) {
   .apod-flexbox {
     flex-direction: row-reverse;
@@ -122,6 +141,10 @@ body {
     min-width: 600px;
     align-items: flex-start;
     justify-content: space-around;
+  }
+
+  .AJAX-planet-image {
+    min-width: 220px;
   }
 
   /* copyright */
@@ -159,5 +182,17 @@ body {
     flex-direction: row;
     margin: 10px;
     justify-content: space-around;
+  }
+
+  .planet_img_api {
+    height: 400px;
+  }
+
+  .header_Img_ttl {
+    text-align: left;
+  }
+
+  .para_img_ttl {
+    text-align: left;
   }
 }

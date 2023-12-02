@@ -29,6 +29,9 @@ magnifying_glass.classList.add('rounded');
 
 const glassBtn = document.querySelector('.span_icon_glass');
 
+// page favoite info
+const planetListUl = document.querySelector('.planetFavoriteList');
+
 // APOD Main Img AJAX Call
 function apodImgMain() {
   // API request creation with XMLHTTPrequest
@@ -105,7 +108,7 @@ glassBtn.addEventListener('click', () => {
     );
 
     imgElement.className = 'd-block rounded planet_img_api rounded';
-    imgElement.height = '200';
+    // imgElement.height = '200';
 
     const favoritePlanetsCall = document.createElement('div');
     favoritePlanetsCall.className = 'favoritePlanets bottomForm';
@@ -155,7 +158,7 @@ glassBtn.addEventListener('click', () => {
     // lightbox.appendChild(favoritesMakerSec)
     const headerDescribe = document.createElement('h3');
 
-    headerDescribe.className = 'header_Img_ttl text-center';
+    headerDescribe.className = 'header_Img_ttl text-left';
     headerDescribe.textContent =
       xhr.response.collection.items[randomNum].data[0].title;
 
@@ -165,8 +168,8 @@ glassBtn.addEventListener('click', () => {
 
     paraDescribe.className = 'para_img_ttl img_des_min_w text-center p-3';
     paraDescribe.textContent = `${xhr.response.collection.items[randomNum].data[0].description}
-      <span class='d-block'>
-      ${xhr.response.collection.items[randomNum].data[0].location}`;
+
+     `;
 
     console.log(xhr.response.collection.items[randomNum].data[0]);
 
@@ -212,6 +215,9 @@ glassBtn.addEventListener('click', () => {
 
       // Calling/utilizing the viewSwap function
       viewSwap('favorites');
+
+      // calling the favorite secttions ul
+      planetListUl.classList.add('block');
 
       // DOM content creation's
 

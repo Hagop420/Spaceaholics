@@ -2,6 +2,13 @@
   display: none;
 }
 
+.block {
+  display: block;
+}
+
 .row {
   display: flex;
+}
+ul {
+  list-style: none;
 }
