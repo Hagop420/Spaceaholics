@@ -19,15 +19,13 @@ ul {
 /* favorites viiewSwap listings */
 .planetBar {
   height: 100px;
-  margin: auto;
-  text-align: center;
-  background-image: url('../images/solarMenu.webp');
-  background-repeat: no-repeat;
+  background-image: url('../images/space-stars.avif');
   background-position: center center;
+  width: 100vw;
 }
 
 .appendingFavoritePlanetsParent {
   display: block;
-  margin: auto;
+  margin: 30px auto;
   text-align: center;
 }

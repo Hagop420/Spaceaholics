@@ -38,10 +38,11 @@
             <label for="planetSearch">
               <span class="planetSearch"> Search Planet </span>
               <input
-                required
                 type="text"
                 placeholder="Planet search..."
-                class="p-1 border-0 rounded" />
+                class="p-1 border-0 rounded"
+                name="planetsInput"
+                required />
             </label>
             <span class="bg-info span_icon_glass rounded">
               <i class="fa-solid fa-magnifying-glass desktop_view"></i>
@@ -63,7 +64,7 @@
       </section>
     </div>
     <div data-view="favorites" class="hidden">
-      <div class="planetBar bg-light">23</div>
+      <div class="planetBar"></div>
       <!-- Creating the list in here -->
       <div class="appendingFavoritePlanetsParent">
         <!-- <ul class="text-center">

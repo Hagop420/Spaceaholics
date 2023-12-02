@@ -30,6 +30,7 @@ magnifying_glass.classList.add('rounded');
 const glassBtn = document.querySelector('.span_icon_glass');
 
 // page favoite info
+const favParentUl = document.querySelector('.appendingFavoritePlanetsParent');
 
 // APOD Main Img AJAX Call
 function apodImgMain() {
@@ -213,10 +214,10 @@ glassBtn.addEventListener('click', () => {
       starMaker.classList.add('starPointer');
 
       // Calling/utilizing the viewSwap function
-      viewSwap('favorites');
-
+      // renderEntry()
+      // viewSwap('entries');
+      // planetListUl.classList.add('block');
       // calling the favorite secttions ul
-      planetListUl.classList.add('block');
 
       // DOM content creation's
 
@@ -248,29 +249,27 @@ viewSwap('favorites');
 
 // my DOM tree favorite lists collection list
 
-const renderEntry = () => {
+function renderEntry() {
   // create the li element dom tree
-
-  const $liCreation = document.createElement('div');
-  $liCreation.className = 'column';
 
   // div element creation
 
-  const $div = document.createElement('ul');
-  $div.className = 'm-auto text-center';
+  const $planetFavUl = document.createElement('ul');
+  $planetFavUl.className = 'm-auto text-center';
   // div 2 creation
 
-  const $div2 = document.createElement('div');
-  $div2.className = 'column-half';
+  // const $li1 = document.createElement('div');
+  // $li1.className = 'text-center';
 
   // img element creation
 
-  const $imgDomTree = document.createElement('img');
-  $imgDomTree.setAttribute(
+  const $planetMainImgAPI = document.createElement('img');
+  $planetMainImgAPI.setAttribute(
     'src',
     'https://www.sherdog.com/image_crop/200/300/_images/fighter/20140911080402_1MG_4005.JPG',
   );
-  $imgDomTree.setAttribute('alt', 'img_from_Dom');
+  $planetMainImgAPI.classList.add('planetImgStyles');
+  $planetMainImgAPI.setAttribute('alt', 'img_from_Dom');
 
   // p one element creation
   const $h1 = document.createElement('p');
@@ -279,19 +278,18 @@ const renderEntry = () => {
 
   // p two element creation
   const $p2 = document.createElement('i');
-  $p2.className = 'appendChildFromJs';
-  $p2.textContent = 2;
+  $p2.className = 'fas fa-pencil';
+
   // appending to the DOM with appendChild
 
-  $liCreation.appendChild($div);
-  $liCreation.appendChild($div2);
-  $liCreation.appendChild($imgDomTree);
-  $liCreation.appendChild($h1);
-  $liCreation.appendChild($p2);
+  favParentUl.appendChild($planetFavUl);
+  favParentUl.appendChild($planetMainImgAPI);
+  favParentUl.appendChild($h1);
+  favParentUl.appendChild($p2);
 
   //  returrns the li element with all the dom nodes/creation
 
-  return $liCreation;
-};
+  return favParentUl;
+}
 
 console.log(renderEntry());
