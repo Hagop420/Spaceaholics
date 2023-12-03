@@ -80,7 +80,7 @@ body {
 /* homepages iframe styles */
 .frame-flex iframe {
   height: 400px;
-  width: 500px;
+  width: 450px;
 }
 
 /* AJAX call for the image */
@@ -156,8 +156,16 @@ body {
     justify-content: space-around;
   }
 
+  .APOD_explanation {
+    text-align: left;
+  }
+
   .AJAX-planet-image {
     min-width: 220px;
+  }
+
+  .frame_desktop iframe {
+    margin: 10px;
   }
 
   /* copyright */
@@ -177,7 +185,7 @@ body {
     background-color: yellow;
     display: block;
     margin: 10px;
-    width: 25vw;
+    width: 20vw;
     outline-color: #000;
     font-weight: bold;
   }

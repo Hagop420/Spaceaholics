@@ -5,6 +5,7 @@ const apodImg = document.querySelector('.apod-flexbox');
 
 const mainInputForm = document.querySelector('form');
 
+
 // // APOD image explanation
 // const apodImgTitle = document.querySelector('.space-APOD-content h2');
 // const apodImgPara = document.querySelector('.space-APOD-content p');
@@ -31,6 +32,22 @@ const glassBtn = document.querySelector('.span_icon_glass');
 
 // page favoite info
 const favParentUl = document.querySelector('.appendingFavoritePlanetsParent');
+
+
+
+
+const $form = document.querySelector('form')
+
+// $form.addEventListener('submit' , (e) => {
+//   e.preventDefault()
+//   const planetStorage = {
+//     entryPlanet: data.nextEntryId
+//     favoritePlanet: e.target.elements.planetsInput.value
+//   }
+//   data.nextEntryId++;
+
+//   data.entries.unshift(planetStorage);
+// })
 
 // APOD Main Img AJAX Call
 function apodImgMain() {
@@ -114,6 +131,8 @@ glassBtn.addEventListener('click', () => {
     favoritePlanetsCall.className = 'favoritePlanets bottomForm';
 
     const $imageColumn = document.createElement('div');
+
+    console.log($imageColumn)
     // This A tag will wrap around the img tag and show the image as a lightbox
     const lightbox = document.createElement('a');
     lightbox.setAttribute('data-lightbox', 'cases');
@@ -208,25 +227,45 @@ glassBtn.addEventListener('click', () => {
       star.remove();
     }
 
-    starMaker.addEventListener('click', () => {
+
+
+
+    starMaker.addEventListener('click', (e) => {
+      e.preventDefault()
       // Adding classes to the stars
       starMaker.classList.add('starColor');
       starMaker.classList.add('starPointer');
 
-      // Calling/utilizing the viewSwap function
-      // renderEntry()
-      // viewSwap('entries');
-      // planetListUl.classList.add('block');
-      // calling the favorite secttions ul
+      // LocalStorage call
+  const planetStorage = {
+    entryPlanet: data.nextEntryId,
+    planetsInput: e.target.elements.planetsInput.value
+  }
+  data.nextEntryId++;
 
-      // DOM content creation's
+  data.entries.unshift(planetStorage);
 
-      // renderEntriy function create DOM tree structure
+
+
+      $form.reset()
+
+      // functions call/utilization
+      // Creating the LI/UL DOM tree w renderEntry
+      renderEntry()
+      // Calling/utilizing the viewSwap function to favorites page
+      viewSwap('favorites');
+// ul
+const favoriteListUl = document.querySelector('.unordered')
+console.log(favoriteListUl)
+
+
+
     });
   });
 
   xhr.send();
 });
+
 const favoritesView = document.querySelector('[data-view="favorites"]');
 const entriesView = document.querySelector('[data-view="entries"]');
 
@@ -245,7 +284,6 @@ function viewSwap(entries) {
   }
 }
 
-viewSwap('favorites');
 
 // my DOM tree favorite lists collection list
 
@@ -255,7 +293,7 @@ function renderEntry() {
   // div element creation
 
   const $planetFavUl = document.createElement('ul');
-  $planetFavUl.className = 'm-auto text-center';
+  $planetFavUl.className = 'm-auto text-center unordered';
   // div 2 creation
 
   // const $li1 = document.createElement('div');
@@ -291,5 +329,3 @@ function renderEntry() {
 
   return favParentUl;
 }
-
-console.log(renderEntry());
