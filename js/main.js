@@ -3,7 +3,7 @@ const apiKey = '3SfbrMVgduWdKtr1Aecz7Z8dMSYKkAWTejCvL0av';
 
 const apodImg = document.querySelector('.apod-flexbox');
 
-const mainInputForm = document.querySelector('form');
+// const mainInputForm = document.querySelector('form');
 
 
 // // APOD image explanation
@@ -36,17 +36,11 @@ const favParentUl = document.querySelector('.appendingFavoritePlanetsParent');
 
 
 
-const $form = document.querySelector('form')
+const $form = document.querySelector('.form-planet-finder')
 
-// $form.addEventListener('submit' , (e) => {
+// $form.addEventListener('submit' , () => {
 //   e.preventDefault()
-//   const planetStorage = {
-//     entryPlanet: data.nextEntryId
-//     favoritePlanet: e.target.elements.planetsInput.value
-//   }
-//   data.nextEntryId++;
 
-//   data.entries.unshift(planetStorage);
 // })
 
 // APOD Main Img AJAX Call
@@ -239,7 +233,7 @@ glassBtn.addEventListener('click', () => {
       // LocalStorage call
   const planetStorage = {
     entryPlanet: data.nextEntryId,
-    planetsInput: e.target.elements.planetsInput.value
+    planetsInput: e.target.elements.text.value
   }
   data.nextEntryId++;
 
@@ -254,9 +248,7 @@ glassBtn.addEventListener('click', () => {
       renderEntry()
       // Calling/utilizing the viewSwap function to favorites page
       viewSwap('favorites');
-// ul
-const favoriteListUl = document.querySelector('.unordered')
-console.log(favoriteListUl)
+
 
 
 
