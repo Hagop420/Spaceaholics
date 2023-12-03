@@ -5,7 +5,6 @@ const apodImg = document.querySelector('.apod-flexbox');
 
 // const mainInputForm = document.querySelector('form');
 
-
 // // APOD image explanation
 // const apodImgTitle = document.querySelector('.space-APOD-content h2');
 // const apodImgPara = document.querySelector('.space-APOD-content p');
@@ -33,10 +32,7 @@ const glassBtn = document.querySelector('.span_icon_glass');
 // page favoite info
 const favParentUl = document.querySelector('.appendingFavoritePlanetsParent');
 
-
-
-
-const $form = document.querySelector('.form-planet-finder')
+const $form = document.querySelector('.form-planet-finder');
 
 // $form.addEventListener('submit' , () => {
 //   e.preventDefault()
@@ -126,7 +122,7 @@ glassBtn.addEventListener('click', () => {
 
     const $imageColumn = document.createElement('div');
 
-    console.log($imageColumn)
+    console.log($imageColumn);
     // This A tag will wrap around the img tag and show the image as a lightbox
     const lightbox = document.createElement('a');
     lightbox.setAttribute('data-lightbox', 'cases');
@@ -221,37 +217,62 @@ glassBtn.addEventListener('click', () => {
       star.remove();
     }
 
+    // Creation of the view entries(sun img) and the modal delete(black hole) buttons
 
+    // wrapping the imgs in a flex div
+    const view_imgs_LS_flexer = document.createElement('div');
+    view_imgs_LS_flexer.className = 'img_system_flexer';
 
+    // apending to parent div
+    favoritePlanetsCall.appendChild(view_imgs_LS_flexer);
+
+    const sunViewLs = document.createElement('img');
+    sunViewLs.classList.add('sunView');
+    sunViewLs.setAttribute('src', './images/sunSmall.png');
+    sunViewLs.setAttribute('alt', 'View_favorite_planets_button');
+    // console.log(sunViewLs)
+
+    view_imgs_LS_flexer.appendChild(sunViewLs);
+
+    // black hole img creation
+    const delImg = document.createElement('img');
+
+    delImg.className = 'delete_hole';
+    delImg.setAttribute('src', './images/black_hole_spinner.png');
+    delImg.setAttribute('alt', 'Delete_favorite_planets_button');
+    // console.log(delImg)
+
+    view_imgs_LS_flexer.appendChild(delImg);
+
+    const black_hole_remove = document.querySelector('.delete_hole');
+
+    // calling/creating the black hole once
+    if (black_hole_remove) {
+      black_hole_remove.remove();
+    }
 
     starMaker.addEventListener('click', (e) => {
-      e.preventDefault()
+      e.preventDefault();
       // Adding classes to the stars
       starMaker.classList.add('starColor');
       starMaker.classList.add('starPointer');
 
       // LocalStorage call
-  const planetStorage = {
-    entryPlanet: data.nextEntryId,
-    planetsInput: e.target.elements.text.value
-  }
-  data.nextEntryId++;
+      const planetStorage = {
+        entryPlanet: data.nextEntryId,
+        planetsInput: e.target.elements.text.value,
+      };
+      data.nextEntryId++;
 
-  data.entries.unshift(planetStorage);
+      data.entries.unshift(planetStorage);
 
-
-
-      $form.reset()
+      $form.reset();
 
       // functions call/utilization
       // Creating the LI/UL DOM tree w renderEntry
-      renderEntry()
+      renderEntry();
       // Calling/utilizing the viewSwap function to favorites page
       viewSwap('favorites');
-
-
-
-
     });
   });
 
@@ -275,7 +296,6 @@ function viewSwap(entries) {
     favoritesView.classList.remove('hidden');
   }
 }
-
 
 // my DOM tree favorite lists collection list
 

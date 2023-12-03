@@ -117,16 +117,53 @@ body {
 /* when star is clicked move to the favorite's page */
 
 .fa-star {
-  margin: 5px;
+  padding: 10px;
   display: none;
 }
 
 /* favorite's page API planet img */
+
+/* parent div */
+.img_system_flexer {
+  display: flex;
+  justify-content: space-between;
+}
+
 .mainInfoPlanetFlex img {
   margin: auto;
   justify-content: center;
   display: block;
   height: 300px;
+}
+
+/* sun/black hole images */
+.sunView,
+.delete_hole {
+  width: 15%;
+}
+
+/* keyframe for small img animation */
+.sunView {
+  animation: sun_animation forwards infinite 1s ease-in-out;
+}
+.delete_hole {
+  animation: black_hole_animation forwards infinite 2s ease-in-out;
+}
+
+/* Keyframes here */
+@keyframes sun_animation {
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes black_hole_animation {
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @media screen and (min-width: 768px) {
