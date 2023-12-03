@@ -18,12 +18,14 @@
       crossorigin="anonymous" />
 
     <!-- Font awesome importation -->
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer" />
+
   </head>
 
   <body>
@@ -72,23 +74,25 @@
       </section>
     </div>
     <div data-view="favorites" class="hidden">
-      <div class="planetBar"></div>
-      <!-- Creating the list in here -->
-      <div class="appendingFavoritePlanetsParent">
-        <!-- <ul class="text-center">
-      <li class=" m-3">Img title</li>
-        <li>
-                  <img src="https://www.sherdog.com/image_crop/200/300/_images/fighter/20140911080402_1MG_4005.JPG" class="rounded"
-                    alt="">
-
-        </li>
-        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab fugiat, iste totam suscipit doloribus quas in similique placeat quis atque quisquam. Commodi ab nulla alias excepturi vel repellendus suscipit expedita.</li>
-        <li>
-          <i class="fas fa-pencil p-4"></i>
-        </li>
- </ul> -->
+      <div class="planetBar d-flex">
+        <h3>View Favorite planets</h3>
+        <p>Planets</p>
+        <img src="./images/cosmonaut.png" alt="Cosmonaut">
       </div>
-    </div>
+
+
+      <!-- none notices here -->
+      <div class="nullMsg hidden">
+        <h1>No Favorite Planets 🪐🌙🌏</h1>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/beW6KCQ90Qc?si=9lNwG1TdtTzPJt-B"
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </div>
+      <!-- Creating the list in here -->
+      <ul class="unordered"></ul>
+
+      </div>
 
     <!-- JQUERY rendering script for lightbox functionallity -->
     <script

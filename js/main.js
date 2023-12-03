@@ -28,12 +28,15 @@ magnifying_glass.classList.add('fa-solid');
 magnifying_glass.classList.add('rounded');
 
 const glassBtn = document.querySelector('.span_icon_glass');
+const $form = document.querySelector('.form-planet-finder');
 
 // page favoite info
 const favParentUl = document.querySelector('.appendingFavoritePlanetsParent');
 
-const $form = document.querySelector('.form-planet-finder');
+const unordered = document.querySelector('.unordered')
 
+
+const mobile_link_tag = document.querySelector('.mobile_link_tag')
 // $form.addEventListener('submit' , () => {
 //   e.preventDefault()
 
@@ -226,6 +229,7 @@ glassBtn.addEventListener('click', () => {
     // apending to parent div
     favoritePlanetsCall.appendChild(view_imgs_LS_flexer);
 
+    const sunOnce = document.querySelector('.sunView')
     const sunViewLs = document.createElement('img');
     sunViewLs.classList.add('sunView');
     sunViewLs.setAttribute('src', './images/sunSmall.png');
@@ -237,19 +241,24 @@ glassBtn.addEventListener('click', () => {
     // black hole img creation
     const delImg = document.createElement('img');
 
+    const black_hole_remove = document.querySelector('.delete_hole');
+
     delImg.className = 'delete_hole';
     delImg.setAttribute('src', './images/black_hole_spinner.png');
     delImg.setAttribute('alt', 'Delete_favorite_planets_button');
     // console.log(delImg)
 
-    view_imgs_LS_flexer.appendChild(delImg);
-
-    const black_hole_remove = document.querySelector('.delete_hole');
-
     // calling/creating the black hole once
     if (black_hole_remove) {
       black_hole_remove.remove();
     }
+    if (sunOnce) {
+      sunOnce.remove();
+    }
+
+    // appending the black hole img to the div
+    view_imgs_LS_flexer.appendChild(delImg);
+
 
     starMaker.addEventListener('click', (e) => {
       e.preventDefault();
@@ -258,13 +267,13 @@ glassBtn.addEventListener('click', () => {
       starMaker.classList.add('starPointer');
 
       // LocalStorage call
-      const planetStorage = {
-        entryPlanet: data.nextEntryId,
-        planetsInput: e.target.elements.text.value,
-      };
-      data.nextEntryId++;
+      // const planetStorage = {
+      //   entryPlanet: data.nextEntryId,
+      //   planetsInput: e.target.elements.text.value,
+      // };
+      // data.nextEntryId++;
 
-      data.entries.unshift(planetStorage);
+      // data.entries.unshift(planetStorage);
 
       $form.reset();
 
@@ -302,10 +311,22 @@ function viewSwap(entries) {
 function renderEntry() {
   // create the li element dom tree
 
-  // div element creation
+ ;
 
-  const $planetFavUl = document.createElement('ul');
-  $planetFavUl.className = 'm-auto text-center unordered';
+  // button tag
+
+  const btnNewSelection = document.createElement('button')
+btnNewSelection.className = 'mobile_link_tag fas fa-moon'
+btnNewSelection.textContent = 'NEW'
+
+
+  // lighbox creation
+const lightbox_favorite = document.createElement('a')
+    lightbox_favorite.setAttribute('data-lightbox', 'cases')
+    lightbox_favorite.setAttribute(
+      'href',
+      'https://www.sherdog.com/image_crop/200/300/_images/fighter/20140911080402_1MG_4005.JPG',
+    );
   // div 2 creation
 
   // const $li1 = document.createElement('div');
@@ -314,17 +335,14 @@ function renderEntry() {
   // img element creation
 
   const $planetMainImgAPI = document.createElement('img');
-  $planetMainImgAPI.setAttribute(
-    'src',
-    'https://www.sherdog.com/image_crop/200/300/_images/fighter/20140911080402_1MG_4005.JPG',
-  );
+  $planetMainImgAPI.setAttribute('src' , 'https://www.sherdog.com/image_crop/200/300/_images/fighter/20140911080402_1MG_4005.JPG')
   $planetMainImgAPI.classList.add('planetImgStyles');
   $planetMainImgAPI.setAttribute('alt', 'img_from_Dom');
 
   // p one element creation
-  const $h1 = document.createElement('p');
-  $h1.className = 'bold appnedHtwo';
-  $h1.textContent = 'here is a paragraph';
+  const apiDescribtion = document.createElement('p');
+  apiDescribtion.className = 'bold appnedHtwo';
+  apiDescribtion.textContent = 'here is a paragraph';
 
   // p two element creation
   const $p2 = document.createElement('i');
@@ -332,12 +350,21 @@ function renderEntry() {
 
   // appending to the DOM with appendChild
 
-  favParentUl.appendChild($planetFavUl);
-  favParentUl.appendChild($planetMainImgAPI);
-  favParentUl.appendChild($h1);
-  favParentUl.appendChild($p2);
+  unordered.appendChild(btnNewSelection)
+  unordered.appendChild(lightbox_favorite)
+  lightbox_favorite.appendChild($planetMainImgAPI);
+  unordered.appendChild(apiDescribtion);
+  unordered.appendChild($p2);
 
   //  returrns the li element with all the dom nodes/creation
 
   return favParentUl;
 }
+
+viewSwap('favorites')
+renderEntry()
+
+
+
+
+console.log(mobile_link_tag)

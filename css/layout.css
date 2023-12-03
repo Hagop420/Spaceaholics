@@ -14,18 +14,102 @@ ul {
   list-style: none;
 }
 
-/* favorites page in mobile firsst design */
+/* favorites page */
 
-/* favorites viiewSwap listings */
 .planetBar {
+  background-color: blue;
   height: 100px;
-  background-image: url('../images/space-stars.avif');
-  background-position: center center;
-  width: 100vw;
+  justify-content: space-around;
+  align-items: center;
+  color: #fff;
+}
+.planetBar > p { transform: rotate(15deg); }
+
+.planetBar > img {
+  height: 70px;
 }
 
-.appendingFavoritePlanetsParent {
+.unordered {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* API CALL FAVORITE PLANET IMAGE */
+
+/* .planetImgStyles {
+  padding: 10px 20px;
+  border: #fff solid 1px;
+  border-radius: 1rem;
+} */
+
+/* new button/top link */
+.mobile_link_tag {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
+  padding: 5px 10px;
+  align-self: flex-end;
+  margin: 15px;
+  text-decoration: none;
+  background-color: #0c53ed;
+  color: #fff;
+  border-radius: 0.3rem;
+}
+
+/* main API/favorites img */
+.unordered img {
+  height: 500px;
+  width: 300px;
+  object-fit: contain;
+}
+
+.mainInfoPlanetFlex img {
+  margin: auto;
+  justify-content: center;
   display: block;
-  margin: 30px auto;
-  text-align: center;
+  height: 300px;
+}
+
+/* favorites section a tag/New button
+.mobile_design_new_link {
+  padding: 3px 10px;
+  float: right;
+
+  display: none;
+  margin: 3px;
+  background-color: blue;
+  color: #fff;
+  text-decoration: none;
+} */
+
+/* sun/black hole images */
+.sunView,
+.delete_hole {
+  width: 12%;
+}
+
+/* keyframe for small img animation */
+.sunView {
+  animation: sun_animation forwards infinite 1s ease-in-out;
+}
+
+.delete_hole {
+  animation: black_hole_animation forwards infinite 2s ease-in-out;
+}
+
+/* Keyframes here */
+@keyframes sun_animation {
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes black_hole_animation {
+  100% {
+    transform: rotate(360deg);
+  }
 }
