@@ -275,6 +275,7 @@ glassBtn.addEventListener('click', () => {
       //   entryPlanet: data.nextEntryId,
       //   planetsInput: e.target.elements.planetsInput.value,
       // };
+      // console.log(e.target.elements.planetsInput.value)
       // data.nextEntryId++;
       // data.entries.unshift(planetStorage);
 
@@ -313,62 +314,62 @@ function viewSwap(entries) {
 // my DOM tree favorite lists collection list
 
 function renderEntry() {
-  // create the li element dom tree
+   // create the li element dom tree
 
- ;
+  const $liCreation = document.createElement('li');
+  $liCreation.className = 'row_inner';
 
-  // button tag
+  // div element creation
 
-  const btnNewSelection = document.createElement('button')
-btnNewSelection.className = 'mobile_link_tag'
-btnNewSelection.textContent = '🪐 NEW'
-
-
-  // lighbox creation
-const lightbox_favorite = document.createElement('a')
-    lightbox_favorite.setAttribute('data-lightbox', 'cases')
-    lightbox_favorite.setAttribute(
-      'href',
-      'https://www.sherdog.com/image_crop/200/300/_images/fighter/20140911080402_1MG_4005.JPG',
-    );
+  const $div = document.createElement('div');
+  $div.className = 'column-half';
   // div 2 creation
 
-  // const $li1 = document.createElement('div');
-  // $li1.className = 'text-center';
+  const $div2 = document.createElement('div');
+  $div2.className = 'column-half';
 
-  // API image title description here
-  const API_ttl = document.createElement('h2')
-  API_ttl.className = 'flex-direction-column title_fav_API'
-  API_ttl.textContent = 'txt title api here'
+  // img element creation in lightbox
 
-  // img element creation
 
-  const $planetMainImgAPI = document.createElement('img');
-  $planetMainImgAPI.setAttribute('src' , 'https://www.sherdog.com/image_crop/200/300/_images/fighter/20140911080402_1MG_4005.JPG')
-  $planetMainImgAPI.classList.add('planetImgStyles');
-  $planetMainImgAPI.setAttribute('alt', 'img_from_Dom');
 
+  const $img_lightbox = document.createElement('a');
+
+  $img_lightbox.setAttribute('href', 'https://i.ytimg.com/vi/hovtL-Ub15o/maxresdefault.jpg');
+  $img_lightbox.setAttribute('data-lightbox', 'cases');
+
+
+  const $imgDomTree = document.createElement('img');
+  $imgDomTree.width = '500'
+  $imgDomTree.setAttribute('src', 'https://i.ytimg.com/vi/hovtL-Ub15o/maxresdefault.jpg');
+  $imgDomTree.setAttribute('alt', 'API_planet_image');
+
+  const $edit = document.createElement('i')
+  $edit.className = 'fas fa-pencil'
+
+$img_lightbox.appendChild($imgDomTree)
   // p one element creation
-  const apiDescribtion = document.createElement('p');
-  apiDescribtion.className = 'bold appnedHtwo';
-  apiDescribtion.textContent = 'here is a paragraph';
+  const $h1 = document.createElement('p');
+  $h1.className = 'bold appnedHtwo';
+  $h1.textContent = 'title_here';
 
   // p two element creation
-  const $p2 = document.createElement('i');
-  $p2.className = 'fas fa-pencil';
-
+  const $p2 = document.createElement('p');
+  $p2.className = 'appendChildFromJs';
+  $p2.textContent ='parahere';
   // appending to the DOM with appendChild
 
-  unordered.appendChild(btnNewSelection)
-  unordered.appendChild(API_ttl)
-  unordered.appendChild(lightbox_favorite)
-  lightbox_favorite.appendChild($planetMainImgAPI);
-  unordered.appendChild(apiDescribtion);
-  unordered.appendChild($p2);
+  unordered.appendChild($liCreation);
+  $liCreation.appendChild($div);
+  $div.appendChild($img_lightbox)
+  $liCreation.appendChild($div2);
+  $div2.appendChild($edit);
+  $div2.appendChild($h1);
+  $div2.appendChild($p2);
 
   //  returrns the li element with all the dom nodes/creation
 
-  return favParentUl;
+
+  return $liCreation;
 }
 
 // viewSwap('favorites')
@@ -386,5 +387,6 @@ console.log(mobile_link_tag)
 // swapping views
 
 swapPlanes.addEventListener('click', () => {
-  viewSwap('entries');
 });
+
+viewSwap('favorites')

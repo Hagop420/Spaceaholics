@@ -252,4 +252,15 @@ body {
   .mobile_link_tag {
     align-self: flex-start;
   }
+
+  /* new rendering */
+
+  .column-full,
+  .column-half {
+    padding: 0 0.75rem;
+  }
+
+  .column-half {
+    width: 50%;
+  }
 }

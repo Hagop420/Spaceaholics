@@ -6,10 +6,6 @@
   display: block;
 }
 
-.row {
-  display: flex;
-}
-
 ul {
   list-style: none;
 }
@@ -47,12 +43,12 @@ button.swapEntries:hover {
   background-color: none;
 }
 
-.unordered {
+/* .unordered {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
   align-items: center;
-}
+} */
 
 .API_img_title {
   text-align: center;
@@ -80,10 +76,11 @@ button.swapEntries:hover {
 }
 
 /* main API/favorites img */
-.unordered img {
+
+/* .unordered img {
   height: 500px;
   object-fit: contain;
-}
+} */
 
 .mainInfoPlanetFlex img {
   margin: auto;
@@ -134,4 +131,16 @@ button.swapEntries:hover {
   100% {
     transform: rotate(360deg);
   }
+}
+
+/* new rendering */
+
+.row_inner {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.column-full,
+.column-half {
+  width: 100%;
 }
