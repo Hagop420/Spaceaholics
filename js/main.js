@@ -315,8 +315,7 @@ function viewSwap(entries) {
 
 function renderEntry() {
    // create the li element dom tree
-
-  const $liCreation = document.createElement('li');
+const $liCreation = document.createElement('li');
   $liCreation.className = 'row_inner';
 
   // div element creation
@@ -328,48 +327,39 @@ function renderEntry() {
   const $div2 = document.createElement('div');
   $div2.className = 'column-half';
 
-  // img element creation in lightbox
-
-
-
-  const $img_lightbox = document.createElement('a');
-
-  $img_lightbox.setAttribute('href', 'https://i.ytimg.com/vi/hovtL-Ub15o/maxresdefault.jpg');
-  $img_lightbox.setAttribute('data-lightbox', 'cases');
-
+  // img element creation
 
   const $imgDomTree = document.createElement('img');
-  $imgDomTree.width = '500'
-  $imgDomTree.setAttribute('src', 'https://i.ytimg.com/vi/hovtL-Ub15o/maxresdefault.jpg');
-  $imgDomTree.setAttribute('alt', 'API_planet_image');
+  // $imgDomTree.setAttribute('src', entry.photoID);
+  $imgDomTree.setAttribute('alt', 'img_from_Dom');
 
-  const $edit = document.createElement('i')
-  $edit.className = 'fas fa-pencil'
-
-$img_lightbox.appendChild($imgDomTree)
   // p one element creation
-  const $h1 = document.createElement('p');
-  $h1.className = 'bold appnedHtwo';
-  $h1.textContent = 'title_here';
+  const $h3 = document.createElement('h3');
+  $h3.className = 'bold appnedHtwo';
+  $h3.textContent = 'API title';
+
+
+  const $pencil = document.createElement('i');
+  $pencil.className = 'fas fa-pencil';
 
   // p two element creation
   const $p2 = document.createElement('p');
   $p2.className = 'appendChildFromJs';
-  $p2.textContent ='parahere';
+  $p2.textContent = '1zasxsa';
   // appending to the DOM with appendChild
 
   unordered.appendChild($liCreation);
   $liCreation.appendChild($div);
-  $div.appendChild($img_lightbox)
-  $liCreation.appendChild($div2);
-  $div2.appendChild($edit);
-  $div2.appendChild($h1);
-  $div2.appendChild($p2);
+  $div.appendChild($h3);
+  $div.appendChild($imgDomTree);
+  $div.appendChild($pencil);
+  $div.appendChild($div2);
 
   //  returrns the li element with all the dom nodes/creation
 
 
   return $liCreation;
+
 }
 
 // viewSwap('favorites')
