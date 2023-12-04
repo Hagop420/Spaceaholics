@@ -265,19 +265,25 @@ glassBtn.addEventListener('click', () => {
 
 
     starMaker.addEventListener('click', (e) => {
+      // image query API
+        const img = document.querySelector('.planet_img_api');
+
+        const APIimgTtl = document.querySelector('.header_Img_ttl');
+
       e.preventDefault();
+
       // Adding classes to the stars
       starMaker.classList.add('starColor');
       starMaker.classList.add('starPointer');
 
       // LocalStorage call
-      // const planetStorage = {
-      //   entryPlanet: data.nextEntryId,
-      //   planetsInput: e.target.elements.planetsInput.value,
-      // };
-      // console.log(e.target.elements.planetsInput.value)
-      // data.nextEntryId++;
-      // data.entries.unshift(planetStorage);
+      const planetStorage = {
+        entryPlanet: data.nextEntryId,
+        entryPlanetTitle: APIimgTtl.textContent,
+        planetsInput: img.src,
+      };
+      data.nextEntryId++;
+      data.entries.unshift(planetStorage);
 
 
       $form.reset();
@@ -314,46 +320,51 @@ function viewSwap(entries) {
 // my DOM tree favorite lists collection list
 
 function renderEntry() {
-   // create the li element dom tree
-const $liCreation = document.createElement('li');
+
+ const $liCreation = document.createElement('li');
   $liCreation.className = 'row_inner';
 
   // div element creation
 
   const $div = document.createElement('div');
-  $div.className = 'column-half';
+  $div.className = 'm-3';
   // div 2 creation
 
-  const $div2 = document.createElement('div');
-  $div2.className = 'column-half';
+  const $lightbox_maker = document.createElement('a');
+$lightbox_maker.setAttribute('href' , 'https://i5.walmartimages.com/seo/FDS-Intimate-Body-Dry-Feminine-Deodorant-Spray-Shower-Fresh-2-Oz_6f1448af-3caf-4257-a553-bf8ffc9437ff.9cae3c4f5c98ae378d84ae198f7f1355.jpeg')
+$lightbox_maker.setAttribute('data-lightbox' , 'cases')
 
+  const $h3 = document.createElement('h3');
+  $h3.className = 'text-center'
+  $h3.textContent = 'content title'
+
+
+  const $pencilIcon = document.createElement('i');
+$pencilIcon.className = 'fas fa-pencil'
   // img element creation
 
   const $imgDomTree = document.createElement('img');
-  // $imgDomTree.setAttribute('src', entry.photoID);
+  $imgDomTree.height = '200'
+  $imgDomTree.setAttribute('src', 'https://i5.walmartimages.com/seo/FDS-Intimate-Body-Dry-Feminine-Deodorant-Spray-Shower-Fresh-2-Oz_6f1448af-3caf-4257-a553-bf8ffc9437ff.9cae3c4f5c98ae378d84ae198f7f1355.jpeg');
   $imgDomTree.setAttribute('alt', 'img_from_Dom');
 
+  // appending the ApiImg to the lightbox
+  console.log($lightbox_maker.appendChild($imgDomTree))
   // p one element creation
-  const $h3 = document.createElement('h3');
-  $h3.className = 'bold appnedHtwo';
-  $h3.textContent = 'API title';
+  const $h1 = document.createElement('p');
+  $h1.className = 'bold appnedHtwo';
+  $h1.textContent = 'API image title';
 
-
-  const $pencil = document.createElement('i');
-  $pencil.className = 'fas fa-pencil';
-
-  // p two element creation
-  const $p2 = document.createElement('p');
-  $p2.className = 'appendChildFromJs';
-  $p2.textContent = '1zasxsa';
   // appending to the DOM with appendChild
 
   unordered.appendChild($liCreation);
+  $liCreation.appendChild($h3);
+  unordered.appendChild($pencilIcon);
   $liCreation.appendChild($div);
-  $div.appendChild($h3);
-  $div.appendChild($imgDomTree);
-  $div.appendChild($pencil);
-  $div.appendChild($div2);
+  // lightbox here
+  $div.appendChild($lightbox_maker);
+
+
 
   //  returrns the li element with all the dom nodes/creation
 
@@ -368,7 +379,7 @@ renderEntry()
 
 
 
-console.log(mobile_link_tag)
+// console.log(mobile_link_tag)
 
 
 
@@ -379,4 +390,4 @@ console.log(mobile_link_tag)
 swapPlanes.addEventListener('click', () => {
 });
 
-viewSwap('favorites')
+// viewSwap('favorites')

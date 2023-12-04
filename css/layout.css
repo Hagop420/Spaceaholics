@@ -43,13 +43,6 @@ button.swapEntries:hover {
   background-color: none;
 }
 
-/* .unordered {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  align-items: center;
-} */
-
 .API_img_title {
   text-align: center;
   padding: 10px;
@@ -77,16 +70,22 @@ button.swapEntries:hover {
 
 /* main API/favorites img */
 
-/* .unordered img {
-  height: 500px;
-  object-fit: contain;
-} */
+.unordered img {
+  display: block;
+  margin: auto;
+  text-align: center;
+}
 
 .mainInfoPlanetFlex img {
   margin: auto;
   justify-content: center;
   display: block;
   height: 300px;
+}
+
+.button_fav {
+  display: flex;
+  justify-content: flex-end;
 }
 
 /* favorites section a tag/New button
@@ -133,14 +132,30 @@ button.swapEntries:hover {
   }
 }
 
-/* new rendering */
-
-.row_inner {
+.unordered {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-direction: column;
+  margin-top: 50px;
 }
 
-.column-full,
+/* new rendering */
 .column-half {
   width: 100%;
+}
+
+.favorite-flex-btn {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.newBtn {
+  color: #fff;
+  background: purple;
+  padding: 7px;
+  border-radius: 0.3rem;
+  margin-top: 20px;
+  border: 0;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 1);
 }

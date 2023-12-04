@@ -125,6 +125,7 @@ body {
   font-size: 25px !important;
   transition: 0.3s all ease-in-out;
   cursor: pointer;
+  text-align: center;
 }
 .fa-pencil:hover { color: rgb(103, 103, 212); }
 
@@ -240,13 +241,6 @@ body {
 
   /* parent div */
 
-  .unordered {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    align-items: center;
-  }
-
   /* NEW button */
 
   .mobile_link_tag {
@@ -260,7 +254,13 @@ body {
     padding: 0 0.75rem;
   }
 
-  .column-half {
-    width: 50%;
+  .unordered {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+  }
+
+  .unordered img {
+    height: 400px;
   }
 }
