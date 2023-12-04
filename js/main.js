@@ -3,6 +3,9 @@ const apiKey = '3SfbrMVgduWdKtr1Aecz7Z8dMSYKkAWTejCvL0av';
 
 const apodImg = document.querySelector('.apod-flexbox');
 
+// entries swapping button on favorites view
+const swapPlanes = document.querySelector('.swapEntries')
+
 // const mainInputForm = document.querySelector('form');
 
 // // APOD image explanation
@@ -37,6 +40,7 @@ const unordered = document.querySelector('.unordered')
 
 
 const mobile_link_tag = document.querySelector('.mobile_link_tag')
+const favorites_img_ttl = document.querySelector('.API_img_title')
 // $form.addEventListener('submit' , () => {
 //   e.preventDefault()
 
@@ -269,11 +273,11 @@ glassBtn.addEventListener('click', () => {
       // LocalStorage call
       // const planetStorage = {
       //   entryPlanet: data.nextEntryId,
-      //   planetsInput: e.target.elements.text.value,
+      //   planetsInput: e.target.elements.planetsInput.value,
       // };
       // data.nextEntryId++;
-
       // data.entries.unshift(planetStorage);
+
 
       $form.reset();
 
@@ -316,8 +320,8 @@ function renderEntry() {
   // button tag
 
   const btnNewSelection = document.createElement('button')
-btnNewSelection.className = 'mobile_link_tag fas fa-moon'
-btnNewSelection.textContent = 'NEW'
+btnNewSelection.className = 'mobile_link_tag'
+btnNewSelection.textContent = '🪐 NEW'
 
 
   // lighbox creation
@@ -331,6 +335,11 @@ const lightbox_favorite = document.createElement('a')
 
   // const $li1 = document.createElement('div');
   // $li1.className = 'text-center';
+
+  // API image title description here
+  const API_ttl = document.createElement('h2')
+  API_ttl.className = 'flex-direction-column title_fav_API'
+  API_ttl.textContent = 'txt title api here'
 
   // img element creation
 
@@ -351,6 +360,7 @@ const lightbox_favorite = document.createElement('a')
   // appending to the DOM with appendChild
 
   unordered.appendChild(btnNewSelection)
+  unordered.appendChild(API_ttl)
   unordered.appendChild(lightbox_favorite)
   lightbox_favorite.appendChild($planetMainImgAPI);
   unordered.appendChild(apiDescribtion);
@@ -361,10 +371,20 @@ const lightbox_favorite = document.createElement('a')
   return favParentUl;
 }
 
-viewSwap('favorites')
+// viewSwap('favorites')
 renderEntry()
 
 
 
 
 console.log(mobile_link_tag)
+
+
+
+
+
+// swapping views
+
+swapPlanes.addEventListener('click', () => {
+  viewSwap('entries');
+});

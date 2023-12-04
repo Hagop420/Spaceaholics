@@ -1,6 +1,4 @@
 /* exported data */
-
-/* exported data */
 let data = {
   view: 'entries',
   entries: [],

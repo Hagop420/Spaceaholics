@@ -23,10 +23,28 @@ ul {
   align-items: center;
   color: #fff;
 }
-.planetBar > p { transform: rotate(15deg); }
 
-.planetBar > img {
+button.swapEntries {
+  transform: rotate(15deg);
+  border: 0;
+  background-color: transparent;
+  font-size: 20px;
+  color: hwb(0deg 100% 0% / 0.835);
+  transition: 0.2s all ease-in-out;
+}
+
+button.swapEntries:hover {
+  color: lightskyblue;
+}
+
+.cosmonaut_link_home {
+  background-color: transparent;
+  border: 0;
+}
+
+.planetBar > .cosmonaut_link_home img {
   height: 70px;
+  background-color: none;
 }
 
 .unordered {
@@ -34,6 +52,11 @@ ul {
   justify-content: space-between;
   flex-direction: column;
   align-items: center;
+}
+
+.API_img_title {
+  text-align: center;
+  padding: 10px;
 }
 
 /* API CALL FAVORITE PLANET IMAGE */
@@ -59,7 +82,6 @@ ul {
 /* main API/favorites img */
 .unordered img {
   height: 500px;
-  width: 300px;
   object-fit: contain;
 }
 

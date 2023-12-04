@@ -53,7 +53,7 @@
           <iframe
             width="500"
             height="295"
-            class="d-none d-md-block"
+            class="d-none d-md-block rounded"
             src="https://www.youtube.com/embed/X40Re7j1WlI?si=VjSUrp1mgEysrg6W""
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -76,8 +76,10 @@
     <div data-view="favorites" class="hidden">
       <div class="planetBar d-flex">
         <h3>View Favorite planets</h3>
-        <p>Planets</p>
-        <img src="./images/cosmonaut.png" alt="Cosmonaut">
+        <button class="swapEntries">Planets 🌕</button>
+        <button class="cosmonaut_link_home">
+          <img src="./images/cosmonaut.png" alt="Cosmonaut">
+        </button>
       </div>
 
 
@@ -89,7 +91,12 @@
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen></iframe>
       </div>
+
+
+
+
       <!-- Creating the list in here -->
+      <!-- <h2 class="API_img_title"></h2> -->
       <ul class="unordered"></ul>
 
       </div>
