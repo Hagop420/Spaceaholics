@@ -306,7 +306,7 @@ glassBtn.addEventListener('click', () => {
       const planetStorage = {
         entryPlanet: data.nextEntryId,
         entryPlanetTitle: APIimgTtl.textContent,
-        planetsInput: img2.src
+        planetsInput: img.src
       };
 
       // editing
@@ -372,12 +372,13 @@ function renderEntry(entry) {
   // div 2 creation
 
   const $lightbox_maker = document.createElement('a');
-$lightbox_maker.setAttribute('href' , entry.planetsInput)
+$lightbox_maker.setAttribute('href' , 'https://i5.walmartimages.com/seo/FDS-Intimate-Body-Dry-Feminine-Deodorant-Spray-Shower-Fresh-2-Oz_6f1448af-3caf-4257-a553-bf8ffc9437ff.9cae3c4f5c98ae378d84ae198f7f1355.jpeg')
 $lightbox_maker.setAttribute('data-lightbox' , 'cases')
 
   const $h3 = document.createElement('h3');
   $h3.className = ' fav_ttl text-center'
   $h3.textContent = 'content title'
+  // $h3.textContent = entry.entryPlanetTitle
 
 
   const $wrapped = document.createElement('div');
@@ -394,10 +395,7 @@ $pencilIcon.className = 'fas fa-pencil'
 
   // appending the ApiImg to the lightbox
   console.log($lightbox_maker.appendChild($imgDomTree))
-  // p one element creation
-  const $h1 = document.createElement('p');
-  $h1.className = 'bold appnedHtwo';
-  $h1.textContent = 'API image title';
+
 
   // appending to the DOM with appendChild
 
