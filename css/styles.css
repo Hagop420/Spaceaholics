@@ -126,6 +126,9 @@ body {
   transition: 0.3s all ease-in-out;
   cursor: pointer;
   text-align: center;
+
+  /* margin: auto; */
+  display: block;
 }
 .fa-pencil:hover { color: rgb(103, 103, 212); }
 
@@ -134,6 +137,7 @@ body {
 .fa-star {
   padding: 10px;
   display: none;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 768px) {
@@ -257,10 +261,20 @@ body {
   .unordered {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
     flex-direction: row;
   }
 
   .unordered img {
     height: 400px;
+  }
+
+  li.row_inner {
+    width: 100%;
+    display: flex;
+
+    /* align-items: center; */
+
+    /* flex-direction: row-reverse !important; */
   }
 }

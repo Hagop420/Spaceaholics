@@ -71,9 +71,9 @@ button.swapEntries:hover {
 /* main API/favorites img */
 
 .unordered img {
-  display: block;
-  margin: auto;
-  text-align: center;
+  height: 220px;
+  width: 98%;
+  object-fit: contain;
 }
 
 .mainInfoPlanetFlex img {
@@ -158,4 +158,14 @@ button.swapEntries:hover {
   margin-top: 20px;
   border: 0;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 1);
+}
+
+.divWrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+li.row_inner {
+  width: 100%;
 }

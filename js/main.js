@@ -327,7 +327,7 @@ function renderEntry() {
   // div element creation
 
   const $div = document.createElement('div');
-  $div.className = 'm-3';
+  $div.className = 'm-3 column-full';
   // div 2 creation
 
   const $lightbox_maker = document.createElement('a');
@@ -335,8 +335,12 @@ $lightbox_maker.setAttribute('href' , 'https://i5.walmartimages.com/seo/FDS-Inti
 $lightbox_maker.setAttribute('data-lightbox' , 'cases')
 
   const $h3 = document.createElement('h3');
-  $h3.className = 'text-center'
+  $h3.className = ' fav_ttl text-center'
   $h3.textContent = 'content title'
+
+
+  const $wrapped = document.createElement('div');
+$wrapped.className = 'd-flex divWrap'
 
 
   const $pencilIcon = document.createElement('i');
@@ -344,7 +348,6 @@ $pencilIcon.className = 'fas fa-pencil'
   // img element creation
 
   const $imgDomTree = document.createElement('img');
-  $imgDomTree.height = '200'
   $imgDomTree.setAttribute('src', 'https://i5.walmartimages.com/seo/FDS-Intimate-Body-Dry-Feminine-Deodorant-Spray-Shower-Fresh-2-Oz_6f1448af-3caf-4257-a553-bf8ffc9437ff.9cae3c4f5c98ae378d84ae198f7f1355.jpeg');
   $imgDomTree.setAttribute('alt', 'img_from_Dom');
 
@@ -358,9 +361,10 @@ $pencilIcon.className = 'fas fa-pencil'
   // appending to the DOM with appendChild
 
   unordered.appendChild($liCreation);
-  $liCreation.appendChild($h3);
-  unordered.appendChild($pencilIcon);
   $liCreation.appendChild($div);
+  $liCreation.appendChild($wrapped)
+  $wrapped.appendChild($h3);
+  $wrapped.appendChild($pencilIcon);
   // lightbox here
   $div.appendChild($lightbox_maker);
 
@@ -388,6 +392,8 @@ renderEntry()
 // swapping views
 
 swapPlanes.addEventListener('click', () => {
+  viewSwap('entries')
+
 });
 
-// viewSwap('favorites')
+viewSwap('favorites')
