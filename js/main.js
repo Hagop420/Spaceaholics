@@ -289,11 +289,11 @@ glassBtn.addEventListener('click', () => {
 
 
 
-const img = document.querySelector('.planet_img_api');
 
-    starMaker.addEventListener('click', (e) => {
-      // // image query API
+  starMaker.addEventListener('click', (e) => {
+  // // image query API
 
+        const img = document.querySelector('.planet_img_api');
         const APIimgTtl = document.querySelector('.header_Img_ttl');
 
       e.preventDefault();
@@ -306,7 +306,7 @@ const img = document.querySelector('.planet_img_api');
       const planetStorage = {
         entryPlanet: data.nextEntryId,
         entryPlanetTitle: APIimgTtl.textContent,
-        planetsInput: img.src
+        planetsInput: img2.src
       };
 
       // editing
@@ -322,6 +322,7 @@ const img = document.querySelector('.planet_img_api');
             planetStorage.entryPlanet = dataEl
             dataEl = data.editing
             renderEntry(planetStorage).replaceWith(dataEl)
+            data.editing = null
             $form.reset();
           }
         })
@@ -330,9 +331,7 @@ const img = document.querySelector('.planet_img_api');
 
 
 
-      // functions call/utilization
-      // Creating the LI/UL DOM tree w renderEntry
-      renderEntry();
+
       // Calling/utilizing the viewSwap function to favorites page
       viewSwap('favorites');
     });
@@ -373,7 +372,7 @@ function renderEntry(entry) {
   // div 2 creation
 
   const $lightbox_maker = document.createElement('a');
-$lightbox_maker.setAttribute('href' , 'https://i5.walmartimages.com/seo/FDS-Intimate-Body-Dry-Feminine-Deodorant-Spray-Shower-Fresh-2-Oz_6f1448af-3caf-4257-a553-bf8ffc9437ff.9cae3c4f5c98ae378d84ae198f7f1355.jpeg')
+$lightbox_maker.setAttribute('href' , entry.planetsInput)
 $lightbox_maker.setAttribute('data-lightbox' , 'cases')
 
   const $h3 = document.createElement('h3');
