@@ -42,12 +42,12 @@ const unordered = document.querySelector('.unordered')
 const $NEW = document.querySelector('.new_js')
 
 
+
+
+
 const mobile_link_tag = document.querySelector('.mobile_link_tag')
 const favorites_img_ttl = document.querySelector('.API_img_title')
-// $form.addEventListener('submit' , () => {
-//   e.preventDefault()
-
-// })
+const $modal_open = document.querySelector('.modal-container')
 
 // APOD Main Img AJAX Call
 function apodImgMain() {
@@ -245,7 +245,67 @@ glassBtn.addEventListener('click', () => {
 
     view_imgs_LS_flexer.appendChild(sunViewLs);
 
-    // black hole img creation
+
+
+    // appending the black hole img to the div
+    // view_imgs_LS_flexer.appendChild(delImg);
+
+// console.log(delImg)
+
+
+
+
+
+
+
+
+
+
+
+
+starMaker.addEventListener('click', (e) => {
+  // // image query API
+
+  const img = document.querySelector('.planet_img_api');
+  const APIimgTtl = document.querySelector('.header_Img_ttl');
+  const paraObjPl = document.querySelector('.para_img_ttl');
+
+      e.preventDefault();
+
+      // Adding classes to the stars
+      starMaker.classList.add('starColor');
+      starMaker.classList.add('starPointer');
+
+      // LocalStorage call
+      const planetStorage = {
+        entryPlanet: data.nextEntryId,
+        entryPlanet: paraObjPl.textContent,
+        entryPlanetTitle: APIimgTtl.textContent,
+        planetsInput: img.src
+      };
+
+      // editing
+      // main statment conditional
+
+      // unordered.prepend(planetStorage)
+
+
+      // Calling/utilizing the viewSwap function to favorites page
+      renderEntry(planetStorage)
+      viewSwap('favorites');
+
+
+      const pencil = document.querySelectorAll('.fa-pencil')
+
+      // backto the views of homepage/entries
+
+      pencil.forEach(pen => {
+        pen.addEventListener('click' , () => {
+          viewSwap('entries')
+
+
+
+// black hole img creation
     const delImg = document.createElement('img');
 
     const black_hole_remove = document.querySelector('.delete_hole');
@@ -262,68 +322,44 @@ glassBtn.addEventListener('click', () => {
     if (sunOnce) {
       sunOnce.remove();
     }
-
-    // appending the black hole img to the div
-    view_imgs_LS_flexer.appendChild(delImg);
-
-
-
-
-//  // image query API
-//         const img = document.querySelector('.planet_img_api');
-
-//         const APIimgTtl = document.querySelector('.header_Img_ttl');
-
-//    // LocalStorage call
-//       const planetStorage = {
-//         entryPlanet: data.nextEntryId,
-//         entryPlanetTitle: APIimgTtl.textContent,
-//         planetsInput: img.src
-//       };
+    view_imgs_LS_flexer.appendChild(delImg)
 
 
 
 
 
+  //            black_hole_remove.addEventListener('click', () => {
+  // // document.body.classList.add('overflow_hide')
+  // // $modal_open.className = 'block confirmation overlay'
+  // // $modal_content.className = 'modal-content-inner-center'
+  // console.log(8)
+
+  //            })
+  // audio when modal's opene'd
+  // elevatorMusic()
+        })
+      })
 
 
 
 
 
-starMaker.addEventListener('click', (e) => {
-  // // image query API
-
-  const img = document.querySelector('.planet_img_api');
-  const APIimgTtl = document.querySelector('.header_Img_ttl');
-
-      e.preventDefault();
-
-      // Adding classes to the stars
-      starMaker.classList.add('starColor');
-      starMaker.classList.add('starPointer');
-
-      // LocalStorage call
-      const planetStorage = {
-        entryPlanet: data.nextEntryId,
-        entryPlanetTitle: APIimgTtl.textContent,
-        planetsInput: img.src
-      };
-
-      // editing
-      // main statment conditional
-
-      unordered.prepend(planetStorage)
+     // opening modal functionallity
 
 
-      // Calling/utilizing the viewSwap function to favorites page
-      renderEntry(planetStorage)
-      viewSwap('favorites');
+
+
+  //    console.log(black_hole_remove)
+
+
+
+})
     })
 
 
 
 
-    });
+
 
 
 
@@ -368,10 +404,11 @@ function renderEntry(entry) {
   const $lightbox_maker = document.createElement('a');
 $lightbox_maker.setAttribute('href' , entry.planetsInput)
 $lightbox_maker.setAttribute('data-lightbox' , 'cases')
+$lightbox_maker.setAttribute('data-title' , entry.entryPlanet)
 
   const $h3 = document.createElement('h3');
   $h3.className = ' fav_ttl text-center'
-  $h3.textContent = 'content title'
+  $h3.textContent = entry.entryPlanetTitle
   // $h3.textContent = entry.entryPlanetTitle
 
 
@@ -427,9 +464,29 @@ swapPlanes.addEventListener('click', () => {
   viewSwap('entries')
 
 });
+
+
+
 $NEW.addEventListener('click', () => {
   viewSwap('entries')
-
+  $form.reset()
 });
+
+
+
+
+// pencil.addEventListener('click', () => {
+
+//   viewSwap('entries')
+// });
+
+
+
+
+
+
+
+
+
 
 // viewSwap('favorites')

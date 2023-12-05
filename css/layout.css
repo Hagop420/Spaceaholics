@@ -71,7 +71,7 @@ button.swapEntries:hover {
 /* main API/favorites img */
 
 .unordered img {
-  height: 420px;
+  height: 220px;
   margin: auto;
   display: block;
   border-radius: 0.4rem;
@@ -171,4 +171,36 @@ button.swapEntries:hover {
 
 li.row_inner {
   width: 100%;
+}
+
+/* creating the modal overlay */
+
+/* hiding the body overflow */
+
+.overflow_hide {
+  overflow: hidden;
+}
+
+.overlay {
+  display: block;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(transparent, #000);
+  bottom: 0;
+  right: 0;
+  top: 0;
+}
+
+.modal-content-inner-center {
+  height: 25vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 40px auto;
+  align-items: center;
+  margin-top: 35vh;
+  background-color: #fff;
+  width: 500px;
+  border-radius: 0.3rem;
 }

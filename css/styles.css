@@ -111,7 +111,7 @@ body {
 /* sun and black hole edit icons */
 .img_system_flexer {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .header_Img_ttl {
@@ -173,7 +173,6 @@ body {
 
   .img_system_flexer {
     flex-direction: column;
-    justify-content: space-between;
   }
 
   .img_system_flexer img {
@@ -186,6 +185,14 @@ body {
     min-width: 600px;
     align-items: flex-start;
     justify-content: space-around;
+  }
+
+  .fav_ttl {
+    min-width: 40px;
+  }
+
+  div[data-view="favorites"] {
+    overflow-x: hidden;
   }
 
   .APOD_explanation {
