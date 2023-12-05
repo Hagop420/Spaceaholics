@@ -75,6 +75,8 @@ body {
 /* homepage's form's magnyfing glass button */
 .span_icon_glass {
   padding: 5px;
+  text-align: center;
+  margin: auto;
 }
 
 /* homepages iframe styles */
@@ -145,6 +147,13 @@ body {
     flex-direction: row-reverse;
   }
 
+  /* homepage's form's magnyfing glass button */
+  .span_icon_glass {
+    display: inline-flex;
+    margin: 20px;
+    cursor: pointer;
+  }
+
   /* bottom frame flex */
   .frame-flex {
     display: flex;
@@ -208,7 +217,7 @@ body {
     background-color: yellow;
     display: block;
     margin: 10px;
-    width: 20vw;
+    width: 22vw;
     outline-color: #000;
     font-weight: bold;
   }

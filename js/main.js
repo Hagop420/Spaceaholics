@@ -38,6 +38,9 @@ const favParentUl = document.querySelector('.appendingFavoritePlanetsParent');
 
 const unordered = document.querySelector('.unordered')
 
+// favorites tab new button
+const $NEW = document.querySelector('.new_js')
+
 
 const mobile_link_tag = document.querySelector('.mobile_link_tag')
 const favorites_img_ttl = document.querySelector('.API_img_title')
@@ -264,9 +267,32 @@ glassBtn.addEventListener('click', () => {
     view_imgs_LS_flexer.appendChild(delImg);
 
 
+
+
+//  // image query API
+//         const img = document.querySelector('.planet_img_api');
+
+//         const APIimgTtl = document.querySelector('.header_Img_ttl');
+
+//    // LocalStorage call
+//       const planetStorage = {
+//         entryPlanet: data.nextEntryId,
+//         entryPlanetTitle: APIimgTtl.textContent,
+//         planetsInput: img.src
+//       };
+
+
+
+
+
+
+
+
+
+const img = document.querySelector('.planet_img_api');
+
     starMaker.addEventListener('click', (e) => {
-      // image query API
-        const img = document.querySelector('.planet_img_api');
+      // // image query API
 
         const APIimgTtl = document.querySelector('.header_Img_ttl');
 
@@ -280,7 +306,7 @@ glassBtn.addEventListener('click', () => {
       const planetStorage = {
         entryPlanet: data.nextEntryId,
         entryPlanetTitle: APIimgTtl.textContent,
-        planetsInput: img.src,
+        planetsInput: img.src
       };
       data.nextEntryId++;
       data.entries.unshift(planetStorage);
@@ -319,7 +345,7 @@ function viewSwap(entries) {
 
 // my DOM tree favorite lists collection list
 
-function renderEntry() {
+function renderEntry(entry) {
 
  const $liCreation = document.createElement('li');
   $liCreation.className = 'row_inner';
@@ -331,7 +357,7 @@ function renderEntry() {
   // div 2 creation
 
   const $lightbox_maker = document.createElement('a');
-$lightbox_maker.setAttribute('href' , 'https://i5.walmartimages.com/seo/FDS-Intimate-Body-Dry-Feminine-Deodorant-Spray-Shower-Fresh-2-Oz_6f1448af-3caf-4257-a553-bf8ffc9437ff.9cae3c4f5c98ae378d84ae198f7f1355.jpeg')
+$lightbox_maker.setAttribute('href' ,entry.planetsInput)
 $lightbox_maker.setAttribute('data-lightbox' , 'cases')
 
   const $h3 = document.createElement('h3');
@@ -392,6 +418,10 @@ renderEntry()
 // swapping views
 
 swapPlanes.addEventListener('click', () => {
+  viewSwap('entries')
+
+});
+$NEW.addEventListener('click', () => {
   viewSwap('entries')
 
 });
