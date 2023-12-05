@@ -312,15 +312,17 @@ starMaker.addEventListener('click', (e) => {
       // editing
       // main statment conditional
 
-      })
-
-
-
+      unordered.prepend(planetStorage)
 
 
       // Calling/utilizing the viewSwap function to favorites page
+      renderEntry(planetStorage)
       viewSwap('favorites');
-      renderEntry()
+    })
+
+
+
+
     });
 
 
@@ -382,7 +384,7 @@ $pencilIcon.className = 'fas fa-pencil'
   // img element creation
 
   const $imgDomTree = document.createElement('img');
-  $imgDomTree.setAttribute('src', 'https://i5.walmartimages.com/seo/FDS-Intimate-Body-Dry-Feminine-Deodorant-Spray-Shower-Fresh-2-Oz_6f1448af-3caf-4257-a553-bf8ffc9437ff.9cae3c4f5c98ae378d84ae198f7f1355.jpeg');
+  $imgDomTree.setAttribute('src', entry.planetsInput);
   $imgDomTree.setAttribute('alt', 'img_from_Dom');
 
   // appending the ApiImg to the lightbox
@@ -391,7 +393,7 @@ $pencilIcon.className = 'fas fa-pencil'
 
   // appending to the DOM with appendChild
 
-  unordered.appendChild($liCreation);
+  unordered.appendChild($liCreation)
   $liCreation.appendChild($div);
   $liCreation.appendChild($wrapped)
   $wrapped.appendChild($h3);
@@ -409,7 +411,6 @@ $pencilIcon.className = 'fas fa-pencil'
 }
 
 // viewSwap('favorites')
-renderEntry()
 
 
 
@@ -431,4 +432,4 @@ $NEW.addEventListener('click', () => {
 
 });
 
-viewSwap('favorites')
+// viewSwap('favorites')
