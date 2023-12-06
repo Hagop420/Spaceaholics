@@ -109,9 +109,12 @@ button.swapEntries:hover {
   width: 12%;
 }
 
-.starColor { transition: 0.3s all ease-in-out; width: 40px; }
+.fa-star {
+  transition: 0.3s all ease-in-out;
+  width: 40px;
+}
 
-.starColor:hover { color: yellow; }
+.fa-star:hover { color: yellow; }
 
 /* keyframe for small img animation */
 .sunView {

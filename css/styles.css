@@ -1,7 +1,9 @@
 /* body background image gif abckground styling and more */
 
 body {
-  background-color: rgb(11, 11, 54) !important;
+  background: radial-gradient(circle at 10% 20%, rgb(120, 50, 255) 0%, rgb(50, 150, 250) 91%);
+
+  /* background-color: rgb(11, 11, 54) !important; */
   color: #fff !important;
 }
 
@@ -128,15 +130,11 @@ body {
 }
 
 /* favorite portion pencil icon */
-.fa-pencil {
+.fa-pencil::before {
   font-size: 25px !important;
   transition: 0.3s all ease-in-out;
   cursor: pointer;
   text-align: center;
-
-  /* width: 100px; */
-
-  /* margin: auto; */
   display: block;
 }
 .fa-pencil:hover { color: rgb(103, 103, 212); }
@@ -148,6 +146,8 @@ body {
   display: none;
   cursor: pointer;
 }
+
+.para_min_min { min-width: 720px; }
 
 @media screen and (min-width: 768px) {
   .apod-flexbox {

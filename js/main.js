@@ -15,6 +15,9 @@ const swapPlanes = document.querySelector('.swapEntries');
 // call parent to create dom elements
 const explanatons = document.querySelector('.space-APOD-content');
 
+
+const $barTtl = document.querySelector('.planetBar > h3');
+
 const apodImgcopyrightClaims = document.querySelector(
   '.space-APOD-content > p.copyright',
 );
@@ -23,6 +26,14 @@ const planetImagesCall = document.querySelector('.AJAX-planet-image');
 
 const $nullMsg = document.querySelector('.nullMsg');
 
+$barTtl.style.cursor = 'pointer'
+$barTtl.addEventListener('click' , () => {viewSwap('entries')})
+$barTtl.addEventListener('mouseover' , () => {
+  $barTtl.style.opacity = '.8'
+})
+$barTtl.addEventListener('mouseout' , () => {
+  $barTtl.style.opacity = '1'
+})
 // classes for the form element
 // // Font awesome magnifying glass
 const magnifying_glass = document.querySelector('.fa-magnifying-glass');
@@ -210,7 +221,7 @@ glassBtn.addEventListener('click', () => {
     // );
 
     const $textColumn = document.createElement('div');
-
+$textColumn.classList.add('para_min_min')
     $textColumn.appendChild(headerDescribe);
     $textColumn.appendChild(paraDescribe);
 
