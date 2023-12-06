@@ -1,7 +1,8 @@
 /* body background image gif abckground styling and more */
 
 body {
-  background-color: rgb(0, 255, 255) !important;
+  background-color: rgb(11, 11, 54) !important;
+  color: #fff !important;
 }
 
 .apod-flexbox {
@@ -79,6 +80,10 @@ body {
   margin: auto;
 }
 
+.span_icon_glass .fa-magnifying-glass {
+  color: #000 !important;
+}
+
 /* homepages iframe styles */
 .frame-flex iframe {
   height: 400px;
@@ -128,6 +133,8 @@ body {
   transition: 0.3s all ease-in-out;
   cursor: pointer;
   text-align: center;
+
+  /* width: 100px; */
 
   /* margin: auto; */
   display: block;

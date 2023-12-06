@@ -334,7 +334,10 @@ glassBtn.addEventListener('click', () => {
             $modal_open.className = 'block confirmation overlay';
             $modal_content.className = 'modal-content-inner-center';
             elevatorMusic();
-          });
+
+
+
+          })
         });
       });
 
@@ -346,6 +349,8 @@ glassBtn.addEventListener('click', () => {
 
   xhr.send();
 });
+
+
 
 const favoritesView = document.querySelector('[data-view="favorites"]');
 const entriesView = document.querySelector('[data-view="entries"]');
@@ -513,3 +518,11 @@ function elevatorMusic() {
 
   audioPlayWhenButtonIsClicked.play();
 }
+
+
+
+
+
+const holespp = document.querySelector(
+  '.delete_hole'
+)

@@ -76,7 +76,7 @@ button.swapEntries:hover {
 
 /* new button/top link */
 .mobile_link_tag {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
   padding: 5px 10px;
   align-self: flex-end;
   margin: 15px;
@@ -108,6 +108,10 @@ button.swapEntries:hover {
 .delete_hole {
   width: 12%;
 }
+
+.starColor { transition: 0.3s all ease-in-out; width: 40px; }
+
+.starColor:hover { color: yellow; }
 
 /* keyframe for small img animation */
 .sunView {
@@ -173,6 +177,7 @@ button.swapEntries:hover {
 
 li.row_inner {
   width: 100%;
+  margin: 20px;
 }
 
 /* creating the modal overlay */
