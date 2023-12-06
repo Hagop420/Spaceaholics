@@ -4,7 +4,7 @@ const apiKey = '3SfbrMVgduWdKtr1Aecz7Z8dMSYKkAWTejCvL0av';
 const apodImg = document.querySelector('.apod-flexbox');
 
 // entries swapping button on favorites view
-const swapPlanes = document.querySelector('.swapEntries')
+const swapPlanes = document.querySelector('.swapEntries');
 
 // const mainInputForm = document.querySelector('form');
 
@@ -21,6 +21,8 @@ const apodImgcopyrightClaims = document.querySelector(
 
 const planetImagesCall = document.querySelector('.AJAX-planet-image');
 
+const $nullMsg = document.querySelector('.nullMsg');
+
 // classes for the form element
 // // Font awesome magnifying glass
 const magnifying_glass = document.querySelector('.fa-magnifying-glass');
@@ -36,23 +38,20 @@ const $form = document.querySelector('.form-planet-finder');
 // page favoite info
 const favParentUl = document.querySelector('.appendingFavoritePlanetsParent');
 
-const unordered = document.querySelector('.unordered')
+const unordered = document.querySelector('.unordered');
 
 // favorites tab new button
-const $NEW = document.querySelector('.new_js')
-
-
-
+const $NEW = document.querySelector('.new_js');
 
 const $modal_open = document.querySelector('.modal-container');
 const $modal_content = document.querySelector('.modal-content');
 const $modal_button_yes = document.querySelector('.modal-button-confirm');
 const $modal_button_no = document.querySelector('.modal-deny');
 const $modal_font = document.querySelector('.modal-font');
-console.log($modal_open)
+console.log($modal_open);
 
-const mobile_link_tag = document.querySelector('.mobile_link_tag')
-const favorites_img_ttl = document.querySelector('.API_img_title')
+const mobile_link_tag = document.querySelector('.mobile_link_tag');
+const favorites_img_ttl = document.querySelector('.API_img_title');
 
 // APOD Main Img AJAX Call
 function apodImgMain() {
@@ -241,41 +240,35 @@ glassBtn.addEventListener('click', () => {
     // apending to parent div
     favoritePlanetsCall.appendChild(view_imgs_LS_flexer);
 
-    const sunOnce = document.querySelector('.sunView')
     const sunViewLs = document.createElement('img');
     sunViewLs.classList.add('sunView');
     sunViewLs.setAttribute('src', './images/sunSmall.png');
     sunViewLs.setAttribute('alt', 'View_favorite_planets_button');
     // console.log(sunViewLs)
- if (sunOnce) {
+
+    // query for sun img
+    const sunOnce = document.querySelector('.sunView');
+    if (sunOnce) {
       sunOnce.remove();
     }
     view_imgs_LS_flexer.appendChild(sunViewLs);
 
+    console.log(sunViewLs);
 
-
+    sunViewLs.addEventListener('click', () => {
+      viewSwap('favorites');
+    });
     // appending the black hole img to the div
     // view_imgs_LS_flexer.appendChild(delImg);
 
-// console.log(delImg)
+    // console.log(delImg)
 
+    starMaker.addEventListener('click', (e) => {
+      // // image query API
 
-
-
-
-
-
-
-
-
-
-
-starMaker.addEventListener('click', (e) => {
-  // // image query API
-
-  const img = document.querySelector('.planet_img_api');
-  const APIimgTtl = document.querySelector('.header_Img_ttl');
-  const paraObjPl = document.querySelector('.para_img_ttl');
+      const img = document.querySelector('.planet_img_api');
+      const APIimgTtl = document.querySelector('.header_Img_ttl');
+      const paraObjPl = document.querySelector('.para_img_ttl');
 
       e.preventDefault();
 
@@ -285,10 +278,10 @@ starMaker.addEventListener('click', (e) => {
 
       // LocalStorage call
       const planetStorage = {
-        entryPlanet: data.nextEntryId,
+        entryPlanetId: data.nextEntryId,
         entryPlanet: paraObjPl.textContent,
         entryPlanetTitle: APIimgTtl.textContent,
-        planetsInput: img.src
+        planetsInput: img.src,
       };
 
       // editing
@@ -296,90 +289,72 @@ starMaker.addEventListener('click', (e) => {
 
       // unordered.prepend(planetStorage)
 
-
       // Calling/utilizing the viewSwap function to favorites page
-      renderEntry(planetStorage)
+      renderEntry(planetStorage);
       viewSwap('favorites');
 
-
-      const pencil = document.querySelectorAll('.fa-pencil')
+      const pencil = document.querySelectorAll('.fa-pencil');
 
       // backto the views of homepage/entries
 
-      pencil.forEach(pen => {
-        pen.addEventListener('click' , () => {
-          viewSwap('entries')
+      pencil.forEach((pen) => {
+        pen.addEventListener('click', () => {
+          viewSwap('entries');
 
+          // black hole img creation
+          const delImg = document.createElement('img');
 
+          delImg.className = 'delete_hole';
+          delImg.setAttribute('src', './images/black_hole_spinner.png');
+          delImg.classList.add('cursor');
+          delImg.setAttribute('alt', 'Delete_favorite_planets_button');
+          // console.log(delImg)
 
-// black hole img creation
-    const delImg = document.createElement('img');
+          // query for the black hole
+          const black_hole_remove = document.querySelector('.delete_hole');
+          // calling/creating the black hole once
+          if (black_hole_remove) {
+            black_hole_remove.remove();
+          }
 
+          view_imgs_LS_flexer.appendChild(delImg);
 
-    delImg.className = 'delete_hole';
-    delImg.setAttribute('src', './images/black_hole_spinner.png');
-    delImg.classList.add('cursor')
-    delImg.setAttribute('alt', 'Delete_favorite_planets_button');
-    // console.log(delImg)
+          console.log(delImg);
+          // modal opened when black hole clicked functionallity
 
-    // query for the black hole
-        const black_hole_remove = document.querySelector('.delete_hole');
-    // calling/creating the black hole once
-    if (black_hole_remove) {
-      black_hole_remove.remove();
-    }
+          delImg.addEventListener('click', () => {
+            document.body.classList.add('overflow_hide');
+            $modal_open.className = 'block confirmation overlay';
+            $modal_content.className = 'modal-content-inner-center';
+            elevatorMusic();
+          });
+        });
+      });
 
-    view_imgs_LS_flexer.appendChild(delImg)
+      // opening modal functionallity
 
-
-
-    console.log(delImg)
-    // modal opened when black hole clicked functionallity
-
-    delImg.addEventListener('click', () => {
-    // document.body.classList.add('overflow_hide')
-    $modal_open.className = 'block confirmation overlay'
-    $modal_content.className = 'modal-content-inner-center'
-      // audio when modal's opene'd
-      // elevatorMusic()
-      console.log($modal_open)
-  })
-        })
-      })
-
-
-
-
-
-     // opening modal functionallity
-
-
-
-
-  //    console.log(black_hole_remove)
-
-
-
-})
-    })
-
-
-
-
-
-
-
-
-
-    xhr.send();
+      //    console.log(black_hole_remove)
+    });
   });
 
-
+  xhr.send();
+});
 
 const favoritesView = document.querySelector('[data-view="favorites"]');
 const entriesView = document.querySelector('[data-view="entries"]');
 
 const entriesTop = document.querySelector('.topForm');
+
+// toggleEntries
+
+function toggleEntries() {
+  if (data.entries.length === 0) {
+    $nullMsg.classList.add('block');
+  } else {
+    $nullMsg.classList.remove('block');
+    $nullMsg.classList.add('hidden');
+  }
+}
 
 // // entries is whole form/swapping the entries
 function viewSwap(entries) {
@@ -394,13 +369,12 @@ function viewSwap(entries) {
   }
 }
 
-
 // my DOM tree favorite lists collection list
 
 function renderEntry(entry) {
-
- const $liCreation = document.createElement('li');
+  const $liCreation = document.createElement('li');
   $liCreation.className = 'row_inner';
+  $liCreation.setAttribute('data-entry-id', entry.entryPlanetId);
 
   // div element creation
 
@@ -409,22 +383,20 @@ function renderEntry(entry) {
   // div 2 creation
 
   const $lightbox_maker = document.createElement('a');
-$lightbox_maker.setAttribute('href' , entry.planetsInput)
-$lightbox_maker.setAttribute('data-lightbox' , 'cases')
-$lightbox_maker.setAttribute('data-title' , entry.entryPlanet)
+  $lightbox_maker.setAttribute('href', entry.planetsInput);
+  $lightbox_maker.setAttribute('data-lightbox', 'cases');
+  $lightbox_maker.setAttribute('data-title', entry.entryPlanet);
 
   const $h3 = document.createElement('h3');
-  $h3.className = ' fav_ttl text-center'
-  $h3.textContent = entry.entryPlanetTitle
+  $h3.className = ' fav_ttl text-center';
+  $h3.textContent = entry.entryPlanetTitle;
   // $h3.textContent = entry.entryPlanetTitle
 
-
   const $wrapped = document.createElement('div');
-$wrapped.className = 'd-flex divWrap'
-
+  $wrapped.className = 'd-flex divWrap';
 
   const $pencilIcon = document.createElement('i');
-$pencilIcon.className = 'fas fa-pencil'
+  $pencilIcon.className = 'fas fa-pencil';
   // img element creation
 
   const $imgDomTree = document.createElement('img');
@@ -432,82 +404,139 @@ $pencilIcon.className = 'fas fa-pencil'
   $imgDomTree.setAttribute('alt', 'img_from_Dom');
 
   // appending the ApiImg to the lightbox
-  console.log($lightbox_maker.appendChild($imgDomTree))
-
+  console.log($lightbox_maker.appendChild($imgDomTree));
 
   // appending to the DOM with appendChild
 
-  unordered.appendChild($liCreation)
+  unordered.appendChild($liCreation);
   $liCreation.appendChild($div);
-  $liCreation.appendChild($wrapped)
+  $liCreation.appendChild($wrapped);
   $wrapped.appendChild($h3);
   $wrapped.appendChild($pencilIcon);
   // lightbox here
   $div.appendChild($lightbox_maker);
 
-
-
   //  returrns the li element with all the dom nodes/creation
 
-
   return $liCreation;
-
 }
+
+// DOM content Loaded
+
+document.addEventListener('DOMContentLoaded', function (event) {
+  for (let i = 0; i < data.entries.length; i++) {
+    const entry = renderEntry(data.entries[i]);
+    unordered.appendChild(entry);
+  }
+  viewSwap(data.view);
+  toggleEntries();
+});
 
 // viewSwap('favorites')
 
-
-
-
 // console.log(mobile_link_tag)
-
-
-
-
 
 // swapping views
 
 swapPlanes.addEventListener('click', () => {
-  viewSwap('entries')
-
+  viewSwap('entries');
 });
-
-
 
 $NEW.addEventListener('click', () => {
-  viewSwap('entries')
-  $form.reset()
+  viewSwap('entries');
+  $form.reset();
 });
 
+// styling the modal
 
+$modal_button_yes.classList.add('btn-sized');
+$modal_button_no.classList.add('btn-sized');
 
+$modal_button_yes.classList.add('btn-confirm-styles');
+$modal_button_no.classList.add('btn-deny-styles');
 
-// pencil.addEventListener('click', () => {
+$modal_button_yes.addEventListener('mouseover', () => {
+  $modal_button_yes.classList.add('scaled');
+  $modal_button_yes.classList.add('white-modal-button');
+  $modal_button_yes.classList.add('opacity-green');
+});
+$modal_button_yes.addEventListener('mouseout', () => {
+  $modal_button_yes.classList.remove('scaled');
+  $modal_button_yes.classList.remove('white-modal-button');
+  $modal_button_yes.classList.remove('opacity-green');
+});
+//  Button custimization's for no in moodal
+$modal_button_no.addEventListener('mouseover', () => {
+  $modal_button_no.classList.add('scaled');
+  $modal_button_no.classList.add('white-modal-button');
+  $modal_button_no.classList.add('very-red-denied');
+});
+$modal_button_no.addEventListener('mouseout', () => {
+  $modal_button_no.classList.remove('scaled');
+  $modal_button_no.classList.remove('white-modal-button');
+  $modal_button_no.classList.remove('very-red-denied');
+});
 
-//   viewSwap('entries')
-// });
+// modal deny/cancel button is clicked
 
+$modal_button_no.addEventListener('click', () => {
+  document.body.classList.remove('overflow_hide');
+  coolAudtioInplementation();
+  $modal_open.className = 'hidden';
+});
 
+// Audio function's
 
+const audioPlayWhenButtonIsClicked = new Audio();
 
+function coolAudtioInplementation() {
+  audioPlayWhenButtonIsClicked.src =
+    'https://www.fesliyanstudios.com/play-mp3/387';
+  audioPlayWhenButtonIsClicked.loop = false;
+  audioPlayWhenButtonIsClicked.play();
+}
 
+// when modal is opnene'd play the elevator music function inplement
+function elevatorMusic() {
+  audioPlayWhenButtonIsClicked.src =
+    'https://dl.vgmdownloads.com/soundtracks/club-penguin-online-unofficial-soundtrack-online-windows-gamerip-2018/tltdklykwt/2-12.%20Pizza%20Parlor.mp3';
+  audioPlayWhenButtonIsClicked.loop = true;
 
+  audioPlayWhenButtonIsClicked.play();
+}
 
+// if confirm button is clicked
 
+$modal_button_yes.addEventListener('click', () => {
+  const $lis = document.querySelectorAll('li');
 
+  console.log('running');
+  document.body.classList.remove('overflow_hide');
+  $modal_open.className = 'hidden';
+  $nullMsg.className = 'block';
 
-// viewSwap('favorites')
+  // // Audio's here
+  audioPlayWhenButtonIsClicked.pause();
+  coolAudtioInplementation();
 
+  // Looping through the data entries
+  for (let i = 0; i < data.entries.length; i++) {
+    if (data.editing.entryPlanet === data.entries[i].entryPlanet) {
+      data.entries.splice(i, 1);
+    }
+  }
+  //   Looping and each clicked li is deleted
+  for (let i = 0; i < $lis.length; i++) {
+    const chk = Number($lis[i].getAttribute('data-entry-id'));
 
+    if (data.editing.entryId === chk) {
+      const lis = $lis[i];
+      lis.remove();
+      break;
+    }
+  }
 
-
-
-//  $modal_open.className = 'block confirmation overlay'
-//     $modal_content.className = 'modal-content-inner-center'
-
-//     console.log($modal_open)
-
-
-
-
-//
+  $form.reset();
+  toggleEntries();
+  viewSwap('favorites');
+});

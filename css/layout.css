@@ -38,6 +38,24 @@ button.swapEntries:hover {
   border: 0;
 }
 
+/* main API/favorites img */
+
+.unordered img {
+  height: 220px;
+  margin: auto;
+  display: block;
+  border-radius: 0.4rem;
+
+  /* object-fit: contain; */
+}
+
+.mainInfoPlanetFlex img {
+  margin: auto;
+  justify-content: center;
+  display: block;
+  height: 300px;
+}
+
 .planetBar > .cosmonaut_link_home img {
   height: 70px;
   background-color: none;
@@ -58,7 +76,7 @@ button.swapEntries:hover {
 
 /* new button/top link */
 .mobile_link_tag {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
   padding: 5px 10px;
   align-self: flex-end;
   margin: 15px;
@@ -66,24 +84,6 @@ button.swapEntries:hover {
   background-color: #0c53ed;
   color: #fff;
   border-radius: 0.3rem;
-}
-
-/* main API/favorites img */
-
-.unordered img {
-  height: 220px;
-  margin: auto;
-  display: block;
-  border-radius: 0.4rem;
-
-  /* object-fit: contain; */
-}
-
-.mainInfoPlanetFlex img {
-  margin: auto;
-  justify-content: center;
-  display: block;
-  height: 300px;
 }
 
 .button_fav {
@@ -195,15 +195,64 @@ li.row_inner {
   /* Adjust z-index as needed */
 }
 
+.modal-font {
+  text-align: center;
+}
+
 .modal-content-inner-center {
-  height: 25vh;
+  height: 35vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin: 40px auto;
   align-items: center;
   margin-top: 35vh;
-  background-color: #fff;
+  background-color: #ccc;
   width: 500px;
+  padding: 10px;
   border-radius: 0.3rem;
+}
+
+.btn-sized {
+  font-size: 16px;
+}
+
+.scaled {
+  transform: scale(1.1);
+  transition: 0.4s all ease-in-out;
+}
+
+.white-modal-button {
+  color: #e0e0e0;
+}
+
+.opacity-smaller {
+  background: red;
+}
+
+.btn-confirm-styles {
+  background: rgb(60, 181, 60);
+  padding: 5px 15px;
+  border-radius: 0.3rem;
+  border: 0;
+}
+
+.btn-deny-styles {
+  background: rgb(165, 8, 8);
+  padding: 5px 15px;
+  border-radius: 0.3rem;
+  border: 0;
+}
+
+.opacity-green {
+  background-color: green;
+}
+
+.very-red-denied {
+  background-color: red;
+}
+
+.modal-deny,
+.modal-button-confirm {
+  font-weight: bold;
 }
