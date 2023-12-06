@@ -276,12 +276,19 @@ glassBtn.addEventListener('click', () => {
       starMaker.classList.add('starColor');
       starMaker.classList.add('starPointer');
 
+      console.log(xhr.response.collection.items[randomNum].data[0]);
+
+      xhr.response.collection.items[randomNum].data.forEach((inside_data) => {
+        console.log(inside_data);
+      });
+
       // LocalStorage call
       const planetStorage = {
         entryPlanetId: data.nextEntryId,
         entryPlanet: paraObjPl.textContent,
         entryPlanetTitle: APIimgTtl.textContent,
         planetsInput: img.src,
+        response: xhr.status,
       };
 
       // editing
@@ -374,7 +381,7 @@ function viewSwap(entries) {
 function renderEntry(entry) {
   const $liCreation = document.createElement('li');
   $liCreation.className = 'row_inner';
-  $liCreation.setAttribute('data-entry-id', entry.entryPlanetId);
+  // $liCreation.setAttribute('data-entry-id', entry.entryPlanetId);
 
   // div element creation
 
@@ -386,6 +393,8 @@ function renderEntry(entry) {
   $lightbox_maker.setAttribute('href', entry.planetsInput);
   $lightbox_maker.setAttribute('data-lightbox', 'cases');
   $lightbox_maker.setAttribute('data-title', entry.entryPlanet);
+
+  // $lightbox_maker.setAttribute('data-title', entry.planetsInput);
 
   const $h3 = document.createElement('h3');
   $h3.className = ' fav_ttl text-center';
@@ -426,7 +435,7 @@ function renderEntry(entry) {
 document.addEventListener('DOMContentLoaded', function (event) {
   for (let i = 0; i < data.entries.length; i++) {
     const entry = renderEntry(data.entries[i]);
-    unordered.appendChild(entry);
+    // unordered.appendChild(entry);
   }
   viewSwap(data.view);
   toggleEntries();
@@ -504,39 +513,3 @@ function elevatorMusic() {
 
   audioPlayWhenButtonIsClicked.play();
 }
-
-// if confirm button is clicked
-
-$modal_button_yes.addEventListener('click', () => {
-  const $lis = document.querySelectorAll('li');
-
-  console.log('running');
-  document.body.classList.remove('overflow_hide');
-  $modal_open.className = 'hidden';
-  $nullMsg.className = 'block';
-
-  // // Audio's here
-  audioPlayWhenButtonIsClicked.pause();
-  coolAudtioInplementation();
-
-  // Looping through the data entries
-  for (let i = 0; i < data.entries.length; i++) {
-    if (data.editing.entryPlanet === data.entries[i].entryPlanet) {
-      data.entries.splice(i, 1);
-    }
-  }
-  //   Looping and each clicked li is deleted
-  for (let i = 0; i < $lis.length; i++) {
-    const chk = Number($lis[i].getAttribute('data-entry-id'));
-
-    if (data.editing.entryId === chk) {
-      const lis = $lis[i];
-      lis.remove();
-      break;
-    }
-  }
-
-  $form.reset();
-  toggleEntries();
-  viewSwap('favorites');
-});
