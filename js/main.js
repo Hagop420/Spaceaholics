@@ -44,10 +44,15 @@ const $NEW = document.querySelector('.new_js')
 
 
 
+const $modal_open = document.querySelector('.modal-container');
+const $modal_content = document.querySelector('.modal-content');
+const $modal_button_yes = document.querySelector('.modal-button-confirm');
+const $modal_button_no = document.querySelector('.modal-deny');
+const $modal_font = document.querySelector('.modal-font');
+console.log($modal_open)
 
 const mobile_link_tag = document.querySelector('.mobile_link_tag')
 const favorites_img_ttl = document.querySelector('.API_img_title')
-const $modal_open = document.querySelector('.modal-container')
 
 // APOD Main Img AJAX Call
 function apodImgMain() {
@@ -242,7 +247,9 @@ glassBtn.addEventListener('click', () => {
     sunViewLs.setAttribute('src', './images/sunSmall.png');
     sunViewLs.setAttribute('alt', 'View_favorite_planets_button');
     // console.log(sunViewLs)
-
+ if (sunOnce) {
+      sunOnce.remove();
+    }
     view_imgs_LS_flexer.appendChild(sunViewLs);
 
 
@@ -308,35 +315,35 @@ starMaker.addEventListener('click', (e) => {
 // black hole img creation
     const delImg = document.createElement('img');
 
-    const black_hole_remove = document.querySelector('.delete_hole');
 
     delImg.className = 'delete_hole';
     delImg.setAttribute('src', './images/black_hole_spinner.png');
+    delImg.classList.add('cursor')
     delImg.setAttribute('alt', 'Delete_favorite_planets_button');
     // console.log(delImg)
 
+    // query for the black hole
+        const black_hole_remove = document.querySelector('.delete_hole');
     // calling/creating the black hole once
     if (black_hole_remove) {
       black_hole_remove.remove();
     }
-    if (sunOnce) {
-      sunOnce.remove();
-    }
+
     view_imgs_LS_flexer.appendChild(delImg)
 
 
 
+    console.log(delImg)
+    // modal opened when black hole clicked functionallity
 
-
-  //            black_hole_remove.addEventListener('click', () => {
-  // // document.body.classList.add('overflow_hide')
-  // // $modal_open.className = 'block confirmation overlay'
-  // // $modal_content.className = 'modal-content-inner-center'
-  // console.log(8)
-
-  //            })
-  // audio when modal's opene'd
-  // elevatorMusic()
+    delImg.addEventListener('click', () => {
+    // document.body.classList.add('overflow_hide')
+    $modal_open.className = 'block confirmation overlay'
+    $modal_content.className = 'modal-content-inner-center'
+      // audio when modal's opene'd
+      // elevatorMusic()
+      console.log($modal_open)
+  })
         })
       })
 
@@ -490,3 +497,17 @@ $NEW.addEventListener('click', () => {
 
 
 // viewSwap('favorites')
+
+
+
+
+
+//  $modal_open.className = 'block confirmation overlay'
+//     $modal_content.className = 'modal-content-inner-center'
+
+//     console.log($modal_open)
+
+
+
+
+//

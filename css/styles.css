@@ -180,6 +180,10 @@ body {
     width: 100px;
   }
 
+  .confirmation {
+    text-align: center;
+  }
+
   /* APOD image explanation */
   .space-APOD-content {
     min-width: 600px;
