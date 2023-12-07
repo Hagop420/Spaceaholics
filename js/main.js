@@ -299,8 +299,12 @@ $textColumn.classList.add('para_min_min')
         entryPlanet: paraObjPl.textContent,
         entryPlanetTitle: APIimgTtl.textContent,
         planetsInput: img.src,
-        response: xhr.status,
       };
+
+
+
+      data.nextEntryId++
+      data.entries.push(planetStorage)
 
       // editing
       // main statment conditional
@@ -308,16 +312,35 @@ $textColumn.classList.add('para_min_min')
       // unordered.prepend(planetStorage)
 
       // Calling/utilizing the viewSwap function to favorites page
+      toggleEntries()
       renderEntry(planetStorage);
       viewSwap('favorites');
 
       const pencil = document.querySelectorAll('.fa-pencil');
 
-      // backto the views of homepage/entries
+      // // backto the views of homepage/entries
 
       pencil.forEach((pen) => {
-        pen.addEventListener('click', () => {
+        console.log(pen)
+        pen.addEventListener('click', (event) => {
+          console.log('running');
           viewSwap('entries');
+
+
+          const divWrap = event.target.closest('.divWrap');
+
+          const planetText = divWrap.children[0].textContent
+
+          console.log(planetText);
+
+
+          // planet text goes here
+
+          data.entries.forEach(data => {
+            if (data.entryPlanetTitle === planetText ) {
+              data.editing = data;
+            }
+          })
 
           // black hole img creation
           const delImg = document.createElement('img');
@@ -345,6 +368,8 @@ $textColumn.classList.add('para_min_min')
             $modal_open.className = 'block confirmation overlay';
             $modal_content.className = 'modal-content-inner-center';
             elevatorMusic();
+
+
 
 
 
@@ -429,7 +454,7 @@ function renderEntry(entry) {
   $imgDomTree.setAttribute('alt', 'img_from_Dom');
 
   // appending the ApiImg to the lightbox
-  console.log($lightbox_maker.appendChild($imgDomTree));
+  $lightbox_maker.appendChild($imgDomTree);
 
   // appending to the DOM with appendChild
 
@@ -531,9 +556,40 @@ function elevatorMusic() {
 }
 
 
+$modal_button_yes.addEventListener('click', () => {
+  const $lis = document.querySelectorAll('li');
+  console.log('running');
+  document.body.classList.remove('overflow_hide')
+  $modal_open.className = 'hidden';
+  $nullMsg.classList.add('block')
+
+  // // Audio's here
+  audioPlayWhenButtonIsClicked.pause()
+  coolAudtioInplementation()
 
 
 
-const holespp = document.querySelector(
-  '.delete_hole'
-)
+  // Looping through the data entries
+  for (let i = 0; i < data.entries.length; i++) {
+    if (data.editing.entryPlanetId === data.entries[i].entryPlanetId) {
+      data.entries.splice(i, 1);
+    }
+
+  }
+  //   Looping and each clicked li is deleted
+  for (let i = 0; i < $lis.length; i++) {
+      const chk = Number($lis[i].getAttribute('data-entry-id'));
+
+    if (data.editing.entryPlanetId === chk) {
+      const lis = $lis[i]
+      lis.remove()
+      break;
+        }
+  }
+
+  viewSwap('favorites')
+  $form.reset()
+  toggleEntries();
+  data.editing = null;
+
+})

@@ -1,11 +1,12 @@
 body.lb-disable-scrolling {
-  overflow: hidden !important;
+  overflow: hidden;
 }
 
 .lightboxOverlay {
   position: absolute;
   top: 0;
   left: 0;
+  overflow: hidden;
   z-index: 9999;
   background-color: black;
   opacity: 0.8;
@@ -19,6 +20,7 @@ body.lb-disable-scrolling {
   z-index: 10000;
   text-align: center;
   line-height: 0;
+  overflow: hidden;
   font-weight: normal;
   outline: none;
 }
@@ -52,7 +54,7 @@ body.lb-disable-scrolling {
 }
 
 .lb-outerContainer::after {
-  content: '';
+  content: "";
   display: table;
   clear: both;
 }
@@ -72,7 +74,7 @@ body.lb-disable-scrolling {
   width: 32px;
   height: 32px;
   margin: 0 auto;
-  background: url('../images/loading.gif') no-repeat;
+  background: url("../images/loading.gif") no-repeat;
 }
 
 .lb-nav {
@@ -90,7 +92,7 @@ body.lb-disable-scrolling {
 
 .lb-nav a {
   outline: none;
-  background-image: url('data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==');
+  background-image: url("data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==");
 }
 
 .lb-dataContainer {
@@ -103,7 +105,7 @@ body.lb-disable-scrolling {
 }
 
 .lb-dataContainer::after {
-  content: '';
+  content: "";
   display: table;
   clear: both;
 }
@@ -139,7 +141,7 @@ body.lb-disable-scrolling {
   float: right;
   width: 30px;
   height: 30px;
-  background: url('../images/close.png') top right no-repeat;
+  background: url("../images/close.png") top right no-repeat;
   text-align: right;
   outline: none;
   opacity: 0.7;

@@ -306,3 +306,12 @@ body {
     /* flex-direction: row-reverse !important; */
   }
 }
+
+/* top menu to favorites */
+
+.viewMenu {
+  display: flex;
+  margin: 5px;
+  justify-content: space-around;
+  align-items: center;
+}
