@@ -1,7 +1,11 @@
 /* body background image gif abckground styling and more */
 
 body {
-  background: radial-gradient(circle at 10% 20%, rgb(120, 50, 255) 0%, rgb(50, 150, 250) 91%);
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(120, 50, 255) 0%,
+    rgb(50, 150, 250) 91%
+  );
 
   /* background-color: rgb(11, 11, 54) !important; */
   color: #fff !important;
@@ -137,7 +141,9 @@ body {
   text-align: center;
   display: block;
 }
-.fa-pencil:hover { color: rgb(103, 103, 212); }
+.fa-pencil:hover {
+  color: rgb(103, 103, 212);
+}
 
 /* when star is clicked move to the favorite's page */
 
@@ -204,7 +210,7 @@ body {
     min-width: 40px;
   }
 
-  div[data-view="favorites"] {
+  div[data-view='favorites'] {
     overflow-x: hidden;
   }
 
@@ -317,7 +323,12 @@ body {
   align-items: center;
   height: 100px;
   background: rgb(0, 255, 142);
-  background: linear-gradient(210deg, rgba(0, 255, 142, 1) 0%, rgba(9, 119, 121, 1) 62%, rgba(2, 0, 36, 1) 100%);
+  background: linear-gradient(
+    210deg,
+    rgba(0, 255, 142, 1) 0%,
+    rgba(9, 119, 121, 1) 62%,
+    rgba(2, 0, 36, 1) 100%
+  );
 }
 
 /* title spaceaholics */
@@ -329,10 +340,15 @@ body {
   transform: scale(1.1) rotate(3deg);
 }
 
-.btnPadd:hover { animation: scalesFav 0.6s forwards ease-in-out; }
+.btnPadd:hover {
+  animation: scalesFav 0.6s forwards ease-in-out;
+}
 
 /* keframe animation */
 
 @keyframes scalesFav {
-  100% { transform: scale(1.1); background: rgb(40, 36, 6); }
+  100% {
+    transform: scale(1.1);
+    background: rgb(40, 36, 6);
+  }
 }
