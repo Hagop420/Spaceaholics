@@ -75,6 +75,7 @@ function apodImgMain() {
     createImgTag.setAttribute('src', xhr.response.hdurl);
     createImgTag.className = 'stretchedAPODimg rounded width_desktop_styling';
     apodImg.appendChild(createImgTag);
+    console.log(xhr.response)
   });
 
   xhr.send();
@@ -268,6 +269,49 @@ $textColumn.classList.add('para_min_min')
 
     sunViewLs.addEventListener('click', () => {
       viewSwap('favorites');
+
+
+      // testing pencil here
+      const pencil = document.querySelectorAll('.fa-pencil');
+
+         pencil.forEach((pen) => {
+        console.log(pen)
+        pen.addEventListener('click', (event) => {
+          console.log('running');
+          viewSwap('entries');
+
+          // document.querySelector('.planet_img_api').src = xhr.response.collection.items[e.target].links[0].href
+          $form.value = xhr.response
+
+          const divWrap = event.target.closest('.divWrap');
+
+          const planetText = divWrap.children[0].textContent
+
+
+
+
+          console.log(planetText);
+          console.log(divWrap.children);
+
+
+          // planet text goes here
+
+          // data.entries.forEach(data => {
+          //   if (data.entryPlanetTitle === planetText ) {
+          //     data.editing = data;
+          //   }
+          // })
+
+          for(let i=0; i < data.entries.length; i++){
+            if (data.entries[i].entryPlanetTitle === planetText ) {
+              console.log('works')
+              data.editing = data;
+            }
+          }
+        })
+      })
+
+      // ending testig
     });
     // appending the black hole img to the div
     // view_imgs_LS_flexer.appendChild(delImg);
@@ -321,26 +365,38 @@ $textColumn.classList.add('para_min_min')
       // // backto the views of homepage/entries
 
       pencil.forEach((pen) => {
-        console.log(pen)
         pen.addEventListener('click', (event) => {
           console.log('running');
           viewSwap('entries');
 
+          // document.querySelector('.planet_img_api').src = xhr.response.collection.items[e.target].links[0].href
+// $form.value = xhr.response.title.includes(`${$form.value}`)
 
           const divWrap = event.target.closest('.divWrap');
 
           const planetText = divWrap.children[0].textContent
 
+
+
+
           console.log(planetText);
+          console.log(divWrap.children);
 
 
           // planet text goes here
 
-          data.entries.forEach(data => {
-            if (data.entryPlanetTitle === planetText ) {
+          // data.entries.forEach(data => {
+          //   if (data.entryPlanetTitle === planetText ) {
+          //     data.editing = data;
+          //   }
+          // })
+
+          for(let i=0; i < data.entries.length; i++){
+            if (data.entries[i].entryPlanetTitle === planetText ) {
+              console.log('works')
               data.editing = data;
             }
-          })
+          }
 
           // black hole img creation
           const delImg = document.createElement('img');
@@ -558,10 +614,10 @@ function elevatorMusic() {
 
 $modal_button_yes.addEventListener('click', () => {
   const $lis = document.querySelectorAll('li');
-  console.log('running');
+  console.log($lis);
   document.body.classList.remove('overflow_hide')
   $modal_open.className = 'hidden';
-  $nullMsg.classList.add('block')
+
 
   // // Audio's here
   audioPlayWhenButtonIsClicked.pause()
@@ -571,7 +627,8 @@ $modal_button_yes.addEventListener('click', () => {
 
   // Looping through the data entries
   for (let i = 0; i < data.entries.length; i++) {
-    if (data.editing.entryPlanetId === data.entries[i].entryPlanetId) {
+    if (data.editing.entryPlanetTitle === data.entries[i].entryPlanetTitle) {
+      console.log('works')
       data.entries.splice(i, 1);
     }
 
@@ -580,12 +637,13 @@ $modal_button_yes.addEventListener('click', () => {
   for (let i = 0; i < $lis.length; i++) {
       const chk = Number($lis[i].getAttribute('data-entry-id'));
 
-    if (data.editing.entryPlanetId === chk) {
+    if (data.editing.entryPlanetTitle === $lis[i].entryPlanetTitle) {
       const lis = $lis[i]
       lis.remove()
       break;
         }
   }
+   $nullMsg.classList.add('block')
 
   viewSwap('favorites')
   $form.reset()

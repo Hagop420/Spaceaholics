@@ -147,11 +147,13 @@ body {
   cursor: pointer;
 }
 
-.para_min_min { min-width: 720px; }
-
 @media screen and (min-width: 768px) {
   .apod-flexbox {
     flex-direction: row-reverse;
+  }
+
+  .para_min_min {
+    min-width: 720px;
   }
 
   /* homepage's form's magnyfing glass button */
@@ -311,7 +313,26 @@ body {
 
 .viewMenu {
   display: flex;
-  margin: 5px;
   justify-content: space-around;
   align-items: center;
+  height: 100px;
+  background: rgb(0, 255, 142);
+  background: linear-gradient(210deg, rgba(0, 255, 142, 1) 0%, rgba(9, 119, 121, 1) 62%, rgba(2, 0, 36, 1) 100%);
+}
+
+/* title spaceaholics */
+.ttl_aimation_scale {
+  transition: 0.3s all ease-in-out;
+}
+
+.ttl_aimation_scale:hover {
+  transform: scale(1.1) rotate(3deg);
+}
+
+.btnPadd:hover { animation: scalesFav 0.6s forwards ease-in-out; }
+
+/* keframe animation */
+
+@keyframes scalesFav {
+  100% { transform: scale(1.1); background: rgb(40, 36, 6); }
 }
