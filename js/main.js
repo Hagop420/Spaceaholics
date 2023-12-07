@@ -45,6 +45,7 @@ magnifying_glass.classList.add('rounded');
 
 const glassBtn = document.querySelector('.span_icon_glass');
 const $form = document.querySelector('.form-planet-finder');
+const $btn_title_bar = document.querySelector('.btnPadd');
 
 // page favoite info
 const favParentUl = document.querySelector('.appendingFavoritePlanetsParent');
@@ -112,6 +113,147 @@ function apodImgExplanation() {
 }
 
 apodImgExplanation();
+
+
+  // to stop the video
+function stopVideo(element) {
+  // getting the iframe from the body
+  var iframe = element.querySelector('.ifNan');
+
+  // check if the iframe exists before trying to manipulate it
+  if (iframe !== null) {
+    // reinitializing the value of the src attribute to stop the YouTube video
+    var temp = iframe.src;
+    iframe.src = temp;
+  }
+}
+
+function stopVideoTwo(element) {
+  // getting the iframe from the body
+  var iframe = element.querySelector('.pause_first');
+
+  // check if the iframe exists before trying to manipulate it
+  if (iframe !== null) {
+    // reinitializing the value of the src attribute to stop the YouTube video
+    var temp = iframe.src;
+    iframe.src = temp;
+  }
+}
+
+// pause the video functions
+
+document.querySelector('.vidTtl').addEventListener('click', function () {
+  // Assuming 'body' is the parent element containing the iframe
+  var body = document.body;
+  stopVideo(body);
+});
+document.querySelector('.swapEntries').addEventListener('click', function () {
+  // Assuming 'body' is the parent element containing the iframe
+  var body = document.body;
+  stopVideo(body);
+});
+document.querySelector('.swapEntries').addEventListener('click', function () {
+  // Assuming 'body' is the parent element containing the iframe
+  var body = document.body;
+  stopVideo(body);
+});
+document.querySelector('.cosmos_man').addEventListener('click', function () {
+  // Assuming 'body' is the parent element containing the iframe
+  var body = document.body;
+  stopVideo(body);
+});
+document.querySelector('.new_js').addEventListener('click', function () {
+  // Assuming 'body' is the parent element containing the iframe
+  var body = document.body;
+  stopVideo(body);
+});
+
+
+function checkWindowWidth() {
+  var screenWidth = window.innerWidth;
+
+  if (screenWidth <= 768) {
+    // Check if there is an event listener on the window
+    var isEventListenerRegistered = checkWindowEventListener();
+
+    if (isEventListenerRegistered) {
+      console.log('Event listener is registered for screens 768px and below.');
+    } else {
+      console.log('No event listener found for screens 768px and below.');
+    }
+  }
+}
+
+function checkWindowEventListener() {
+  // Retrieve all event listeners attached to the window
+  var eventListeners = getEventListeners(window);
+
+  // Check if there is an event listener for the 'resize' event
+  return eventListeners && eventListeners.resize && eventListeners.resize.length > 0;
+}
+
+// Add event listener for window resize
+window.addEventListener('resize', function () {
+  checkWindowWidth();
+  stopVideoTwo(body)
+});
+
+
+
+
+
+// ending the iframe pause
+
+
+$btn_title_bar.addEventListener('click' , () => {
+  unordered.remove()
+  $nullMsg.classList.add('block')
+           viewSwap('favorites')
+           const faPencil = document.querySelectorAll('.fa-pencil')
+           console.log(faPencil)
+
+
+          //  calling the fa pencil functionallity here
+
+            faPencil.forEach((pen) => {
+        console.log(pen)
+        pen.addEventListener('click', (event) => {
+          console.log('running');
+          viewSwap('entries');
+
+          // document.querySelector('.planet_img_api').src = xhr.response.collection.items[e.target].links[0].href
+
+          const divWrap = event.target.closest('.divWrap');
+
+          const planetText = divWrap.children[0].textContent
+
+
+
+
+          console.log(planetText);
+          console.log(divWrap.children);
+
+
+          // planet text goes here
+
+          // data.entries.forEach(data => {
+          //   if (data.entryPlanetTitle === planetText ) {
+          //     data.editing = data;
+          //   }
+          // })
+
+          for(let i=0; i < data.entries.length; i++){
+            if (data.entries[i].entryPlanetTitle === planetText ) {
+              console.log('works')
+              data.editing = data;
+            }
+          }
+        })
+
+     })
+
+          // end
+})
 
 // Calling the Image/Video API
 
@@ -267,6 +409,8 @@ $textColumn.classList.add('para_min_min')
 
     console.log(sunViewLs);
 
+
+
     sunViewLs.addEventListener('click', () => {
       viewSwap('favorites');
 
@@ -281,7 +425,6 @@ $textColumn.classList.add('para_min_min')
           viewSwap('entries');
 
           // document.querySelector('.planet_img_api').src = xhr.response.collection.items[e.target].links[0].href
-          $form.value = xhr.response
 
           const divWrap = event.target.closest('.divWrap');
 
@@ -309,10 +452,12 @@ $textColumn.classList.add('para_min_min')
             }
           }
         })
-      })
 
+     })
       // ending testig
     });
+
+
     // appending the black hole img to the div
     // view_imgs_LS_flexer.appendChild(delImg);
 
@@ -428,9 +573,19 @@ $textColumn.classList.add('para_min_min')
 
 
 
+  // end test home
+
+
 
           })
+
+
+
+
+
         });
+
+
       });
 
       // opening modal functionallity
@@ -441,6 +596,8 @@ $textColumn.classList.add('para_min_min')
 
   xhr.send();
 });
+
+
 
 
 
@@ -478,7 +635,6 @@ function viewSwap(entries) {
 function renderEntry(entry) {
   const $liCreation = document.createElement('li');
   $liCreation.className = 'row_inner';
-  // $liCreation.setAttribute('data-entry-id', entry.entryPlanetId);
 
   // div element creation
 
@@ -612,6 +768,14 @@ function elevatorMusic() {
 }
 
 
+// $btn_title_bar.addEventListener('click' , () => {
+//            viewSwap('favorites')
+// })
+
+
+
+
+
 $modal_button_yes.addEventListener('click', () => {
   const $lis = document.querySelectorAll('li');
   console.log($lis);
@@ -635,19 +799,17 @@ $modal_button_yes.addEventListener('click', () => {
   }
   //   Looping and each clicked li is deleted
   for (let i = 0; i < $lis.length; i++) {
-      const chk = Number($lis[i].getAttribute('data-entry-id'));
-
     if (data.editing.entryPlanetTitle === $lis[i].entryPlanetTitle) {
       const lis = $lis[i]
       lis.remove()
       break;
         }
   }
-   $nullMsg.classList.add('block')
 
   viewSwap('favorites')
   $form.reset()
   toggleEntries();
+  $nullMsg.className ='block'
   data.editing = null;
 
 })
