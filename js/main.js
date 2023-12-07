@@ -159,6 +159,7 @@ document.querySelector('.swapEntries').addEventListener('click', function () {
 });
 document.querySelector('.cosmos_man').addEventListener('click', function () {
   // Assuming 'body' is the parent element containing the iframe
+  viewSwap('entries')
   var body = document.body;
   stopVideo(body);
 });
