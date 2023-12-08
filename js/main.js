@@ -210,8 +210,7 @@ $btn_title_bar.addEventListener('click', () => {
   //  calling the fa pencil functionallity here
   faPencil.forEach((pen) => {
     pen.addEventListener('click', (event) => {
-      console.log('running');
-      // debugger;
+
       viewSwap('entries');
 
       while (planetImagesCall.firstChild) {
@@ -226,11 +225,7 @@ $btn_title_bar.addEventListener('click', () => {
 
       // planet text goes here
 
-      // data.entries.forEach(data => {
-      //   if (data.entryPlanetTitle === planetText ) {
-      //     data.editing = data;
-      //   }
-      // })
+
 
       for (let i = 0; i < data.entries.length; i++) {
         if (data.entries[i].entryPlanetTitle === planetText) {
@@ -506,8 +501,7 @@ glassBtn.addEventListener('click', () => {
 
       pencil.forEach((pen) => {
         pen.addEventListener('click', (event) => {
-          console.log('running');
-          // debugger;
+
           viewSwap('entries');
 
           // document.querySelector('.planet_img_api').src = xhr.response.collection.items[e.target].links[0].href
@@ -553,17 +547,12 @@ glassBtn.addEventListener('click', () => {
       };
 
 
-      // bring back pencils
+
 
       data.nextEntryId++;
       data.entries.push(planetStorage);
 
-      // editing
-      // main statment conditional
 
-      // unordered.prepend(planetStorage)
-
-      // Calling/utilizing the viewSwap function to favorites page
       toggleEntries();
       unordered.prepend(renderEntry(planetStorage));
       viewSwap('favorites');
@@ -574,12 +563,9 @@ glassBtn.addEventListener('click', () => {
 
       pencil.forEach((pen) => {
         pen.addEventListener('click', (event) => {
-          console.log('running');
-          // debugger;
           viewSwap('entries');
-          console.log(sunViewLs)
-          // document.querySelector('.planet_img_api').src = xhr.response.collection.items[e.target].links[0].href
-          // $form.value = xhr.response.title.includes(`${$form.value}`)
+
+
 
           const divWrap = event.target.closest('.divWrap');
 
@@ -607,9 +593,9 @@ glassBtn.addEventListener('click', () => {
           view_imgs_LS_flexer.appendChild(delImg);
 
 
-          if (black_hole_remove) {
-            black_hole_remove.remove();
-          }
+          // if (black_hole_remove) {
+          //   black_hole_remove.remove();
+          // }
 
 
 
@@ -641,14 +627,13 @@ const entriesTop = document.querySelector('.topForm');
 // toggleEntries
 
 function toggleEntries() {
-  console.log(data.entries.length)
-  if (data.entries.length > 0) {
-    // $nullMsg.classList.remove('hidden');
-    $nullMsg.classList.add('hidden')
+  if (data.entries.length === 0) {
+    $nullMsg.classList.remove('hidden');
+    // $nullMsg.classList.add('hidden')
 
   } else {
     // $nullMsg.classList.remove('block');
-    $nullMsg.classList.remove('hidden');
+    $nullMsg.classList.add('hidden');
 
 }
 }
@@ -821,14 +806,11 @@ $modal_button_yes.addEventListener('click', () => {
     if (data.editing.entryPlanetTitle === data.entries[i].entryPlanetTitle) {
       data.entries.splice(i, 1);
       unordered.removeChild($lis[i])
-      console.log('1111111')
     }
   }
   //   Looping and each clicked li is deleted
   // for (let i = 0; i < $lis.length; i++) {
-  //   console.log('1')
   //   if (data.editing.entryPlanetTitle === $lis[i].entryPlanetTitle) {
-  //     console.log('1111111')
   //     const lis = $lis[i];
   //     unordered.removeChild(lis);
   //     // break;
