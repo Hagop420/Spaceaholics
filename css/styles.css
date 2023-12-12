@@ -189,6 +189,9 @@ body {
   /* sun and black hole edit icons */
 
   .img_system_flexer {
+    /* min-width: 33.3%; */
+
+    display: flex;
     flex-direction: column;
   }
 
@@ -363,4 +366,9 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.nullMsg iframe {
+  height: 700px;
+  width: 1000px;
 }
