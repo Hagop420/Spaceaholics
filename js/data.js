@@ -1,8 +1,6 @@
 /* exported data */
-
-/* exported data */
 let data = {
-  view: 'entry-form',
+  view: 'entries',
   entries: [],
   editing: null,
   nextEntryId: 1,
@@ -11,7 +9,7 @@ let data = {
 // localStorage
 
 const previousTodoJSON = window.localStorage.getItem(
-  'javascript-local-storage',
+  'Favorite-planets',
 );
 
 if (previousTodoJSON !== null) {
@@ -23,5 +21,5 @@ window.addEventListener('beforeunload', (e) => {
 
   const todosJSON = JSON.stringify(data);
 
-  localStorage.setItem('javascript-local-storage', todosJSON);
+  localStorage.setItem('Favorite-planets', todosJSON);
 });

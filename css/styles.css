@@ -1,7 +1,15 @@
 /* body background image gif abckground styling and more */
 
 body {
-  background-color: rgb(43, 200, 200);
+  background:
+    radial-gradient(
+      circle at 10% 20%,
+      rgb(120, 50, 255) 0%,
+      rgb(50, 150, 250) 91%
+    );
+
+  /* background-color: rgb(11, 11, 54) !important; */
+  color: #fff !important;
 }
 
 .apod-flexbox {
@@ -12,109 +20,355 @@ body {
   padding: 5px;
 }
 
-.stretchedAPODimg {
-  width: 100%;
-}
+/* APOD explained flexbox *\[=]n
 
-/* Main form styling/giving it a class of block and more */
-
-/* AJAX Image explanations */
-
-.APOD_explanation::first-letter {
-  color: rgb(235, 240, 240);
-  font-family: cursive;
-  font-size: 32px;
-}
-
-.copyright {
-  float: right;
-  margin: 2px;
-}
-
-/* .space-APOD-content > p.copyright {} */
-
-/* i frames and form for planet search */
-
-.frame-flex {
+.space-APOD-content {
+  margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+/* bottom planet image API call */
+.planet_img_api {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  height: 250px;
+}
+
+/* copyright */
+.copyright {
+  align-self: flex-end;
+  padding: 5px;
+}
+
+.stretchedAPODimg {
+  width: 100%;
+}
+
+.APOD_explanation {
+  text-align: center;
+}
+
+.APOD_explanation::first-letter {
+  color: rgb(0, 242, 255);
+  font-family: cursive;
+  font-size: 32px;
+}
+
+/* bottom frame flexbox */
+.frame-flex {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+
+/* homepage form styles */
 .form-planet-finder {
+  margin: 10px;
+
+  /* display: block; */
+}
+
+.form-planet-finder input {
+  background-color: yellow;
+  display: block;
+  margin: 10px;
+  width: 60vw;
+  outline-color: #000;
+  font-weight: bold;
+}
+
+/* homepage's form's magnyfing glass button */
+.span_icon_glass {
+  padding: 5px;
+  text-align: center;
   margin: auto;
 }
 
-form.form-planet-finder input {
-  background-color: darkturquoise;
-  width: 96.5%;
-  color: #000;
-  display: inline-block;
+.span_icon_glass .fa-magnifying-glass {
+  color: #000 !important;
 }
 
-form.form-planet-finder input::placeholder {
-  color: dark;
+/* homepages iframe styles */
+.frame-flex iframe {
+  height: 400px;
+  width: 450px;
 }
 
-/* Planet api pull image styling */
-.planet_img_api {
-  margin: 10px auto;
+/* AJAX call for the image */
+.AJAX-planet-image {
+  margin-top: 1.3rem;
 }
 
-/* When the Img API gets called and the user hover's the image show the anchor tag/styling */
+.favoritePlanets {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  justify-content: space-around;
+}
 
-.CSS_styled_lightbox_cursor {
+.mainInfoPlanetFlex {
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainInfoPlanetFlex p {
+  text-align: center;
+}
+
+/* sun and black hole edit icons */
+.img_system_flexer {
+  display: flex;
+  justify-content: space-around;
+}
+
+.header_Img_ttl {
+  text-align: center;
+}
+
+.para_img_ttl {
+  text-align: center;
+}
+
+/* favorite portion pencil icon */
+.fa-pencil::before {
+  font-size: 25px !important;
+  transition: 0.3s all ease-in-out;
   cursor: pointer;
+  text-align: center;
+  display: block;
 }
 
-/* font awesome icon styling */
-form .span_icon_glass {
-  padding: 6.5px 10px;
-  border-radius: 0.3rem;
-  font-size: 17.1px;
-  transition: 0.4s all ease-in-out;
+.fa-pencil:hover {
+  color: rgb(103, 103, 212);
 }
 
-form .span_icon_glass:hover {
+/* when star is clicked move to the favorite's page */
+
+.fa-star {
+  padding: 10px;
+  display: none;
   cursor: pointer;
-  opacity: 0.9;
 }
 
 @media screen and (min-width: 768px) {
   .apod-flexbox {
     flex-direction: row-reverse;
-    padding: 1px;
   }
 
-  /* APOD image */
-
-  .width_desktop_styling {
-    height: 500px;
-    width: 100%;
+  .para_min_min {
+    min-width: 720px;
   }
 
-  /* AJAX APOD content */
-  .space-APOD-content {
-    min-width: 420px;
-    margin: 10px;
+  /* homepage's form's magnyfing glass button */
+  .span_icon_glass {
+    display: inline-flex;
+    margin: 20px;
+    cursor: pointer;
   }
 
-  /* section thats targeting the input APOD */
+  /* bottom frame flex */
   .frame-flex {
-    flex-direction: row-reverse;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     justify-content: space-around;
+  }
+
+  /* apod image */
+
+  .stretchedAPODimg {
+    height: 500px;
+    padding: 10px;
+  }
+
+  /* sun and black hole edit icons */
+
+  .img_system_flexer {
+    /* min-width: 33.3%; */
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  .img_system_flexer img {
+    height: 100px;
+    width: 100px;
+  }
+
+  .confirmation {
+    text-align: center;
+  }
+
+  /* APOD image explanation */
+  .space-APOD-content {
+    min-width: 600px;
+    align-items: flex-start;
+    justify-content: space-around;
+  }
+
+  .fav_ttl {
+    min-width: 40px;
+  }
+
+  div[data-view="favorites"] {
+    overflow-x: hidden;
+  }
+
+  .APOD_explanation {
+    text-align: left;
+  }
+
+  .AJAX-planet-image {
+    min-width: 220px;
+  }
+
+  .frame_desktop iframe {
     margin: 10px;
   }
 
-  .frame-flex input {
+  /* copyright */
+  .copyright {
+    align-self: flex-start;
+    padding: 5px;
+  }
+
+  /* homepage form styles */
+  .form-planet-finder {
+    margin: 10px;
+
+    /* display: block; */
+  }
+
+  .form-planet-finder input {
+    background-color: yellow;
     display: block;
+    margin: 10px;
+    width: 22vw;
+    outline-color: #000;
+    font-weight: bold;
   }
 
-  /* iframe */
-  iframe {
-    /* width: 300px; */
+  /* Planets Faviruts API call */
+
+  /* .header_Img_ttl {
+    display: block !important;
+  } */
+
+  /* AJAX imgages/descriptions call */
+
+  .favoritePlanets {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    justify-content: space-around;
+  }
+
+  .planet_img_api {
+    height: 400px;
+  }
+
+  .header_Img_ttl {
+    text-align: left;
+    margin: 5px;
+  }
+
+  .para_img_ttl {
+    text-align: left;
+  }
+
+  /* favorite's page API planet img */
+
+  /* parent div */
+
+  /* NEW button */
+
+  .mobile_link_tag {
+    align-self: flex-start;
+  }
+
+  /* new rendering */
+
+  .column-full,
+  .column-half {
+    padding: 0 0.75rem;
+  }
+
+  .unordered {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
+  .unordered img {
     height: 300px;
-
-    /* margin: 15px; */
+    border-radius: 0.3rem;
   }
+
+  li.row_inner {
+    width: 100%;
+    display: flex;
+
+    /* align-items: center; */
+
+    /* flex-direction: row-reverse !important; */
+  }
+}
+
+/* top menu to favorites */
+
+.viewMenu {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100px;
+  background: rgb(0, 255, 142);
+  background:
+    linear-gradient(
+      210deg,
+      rgba(0, 255, 142, 1) 0%,
+      rgba(9, 119, 121, 1) 62%,
+      rgba(2, 0, 36, 1) 100%
+    );
+}
+
+/* title spaceaholics */
+.ttl_aimation_scale {
+  transition: 0.3s all ease-in-out;
+}
+
+.ttl_aimation_scale:hover {
+  transform: scale(1.1) rotate(3deg);
+}
+
+.btnPadd:hover {
+  animation: scalesFav 0.6s forwards ease-in-out;
+}
+
+/* keframe animation */
+
+@keyframes scalesFav {
+  100% {
+    transform: scale(1.1);
+    background: rgb(40, 36, 6);
+  }
+}
+
+/* if there's absolutley 0 planets in storage/favorites */
+
+.nullMsg {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.nullMsg iframe {
+  height: 700px;
+  width: 1000px;
 }
