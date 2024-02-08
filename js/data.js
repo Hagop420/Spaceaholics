@@ -8,9 +8,7 @@ let data = {
 
 // localStorage
 
-const previousTodoJSON = window.localStorage.getItem(
-  'Favorite-planets',
-);
+const previousTodoJSON = window.localStorage.getItem('Favorite-planets');
 
 if (previousTodoJSON !== null) {
   data = JSON.parse(previousTodoJSON);

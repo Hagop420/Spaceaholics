@@ -466,7 +466,7 @@ glassBtn.addEventListener('click', () => {
             document.body.classList.add('overflow_hide');
             $modal_open.className = 'block confirmation overlay';
             $modal_content.className = 'modal-content-inner-center';
-            // viewSwap('favorites');
+            viewSwap('favorites');
             elevatorMusic();
           });
           if (black_hole_remove) {
@@ -538,6 +538,10 @@ glassBtn.addEventListener('click', () => {
             }
           }
 
+          // planetsInput: img.src;
+
+          // 1st way after we search and we go to another page we can delete what i search 3nd way once pencil is clicked we want the field below the search to be updated
+
           // black hole img creation
           const delImg = document.createElement('img');
 
@@ -581,7 +585,6 @@ function toggleEntries() {
   if (data.entries.length === 0) {
     $nullMsg.classList.remove('hidden');
   } else {
-    // $nullMsg.classList.remove('block');
     $nullMsg.classList.add('hidden');
   }
 }
@@ -649,7 +652,7 @@ function renderEntry(entry) {
   // lightbox here
   $div.appendChild($lightbox_maker);
 
-  //  returrns the li element with all the dom nodes/creation
+  //  returns the li element with all the dom nodes/creation
 
   return $liCreation;
 }
@@ -673,7 +676,7 @@ swapPlanes.addEventListener('click', () => {
 
 $NEW.addEventListener('click', () => {
   viewSwap('entries');
-  // $form.reset();
+  $form.reset();
 });
 
 // styling the modal
@@ -750,7 +753,9 @@ $modal_button_yes.addEventListener('click', () => {
   // Looping through the data entries
   for (let i = 0; i < data.entries.length; i++) {
     if (data.editing.entryPlanetTitle === data.entries[i].entryPlanetTitle) {
-      data.entries.splice(i, 1);
+      const array = data.entries;
+      const elementDelete = array.splice(i, 1);
+      data.entries = array;
       unordered.removeChild($lis[i]);
     }
   }

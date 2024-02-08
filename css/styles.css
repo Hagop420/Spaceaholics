@@ -155,13 +155,18 @@ body {
   cursor: pointer;
 }
 
+.nullMsg iframe {
+  height: 450px;
+  width: 500px;
+}
+
 @media screen and (min-width: 768px) {
   .apod-flexbox {
     flex-direction: row-reverse;
   }
 
   .para_min_min {
-    min-width: 720px;
+    /* min-width: 720px; */
     display: flex;
     flex-direction: column;
   }
@@ -188,6 +193,12 @@ body {
     padding: 10px;
   }
 
+  /* fav i frame */
+  .nullMsg iframe {
+    height: 650px;
+    width: 1000px;
+  }
+
   /* sun and black hole edit icons */
 
   .img_system_flexer {
@@ -209,7 +220,7 @@ body {
 
   /* APOD image explanation */
   .space-APOD-content {
-    min-width: 600px;
+    min-width: 700px;
     align-items: flex-start;
     justify-content: space-around;
   }
@@ -368,11 +379,6 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.nullMsg iframe {
-  height: 650px;
-  width: 1000px;
 }
 
 @media (max-width: 768px) {
