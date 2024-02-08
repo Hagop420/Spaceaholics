@@ -122,6 +122,7 @@ body {
 /* sun and black hole edit icons */
 .img_system_flexer {
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
 }
 
@@ -161,6 +162,8 @@ body {
 
   .para_min_min {
     min-width: 720px;
+    display: flex;
+    flex-direction: column;
   }
 
   /* homepage's form's magnyfing glass button */
@@ -189,9 +192,10 @@ body {
 
   .img_system_flexer {
     /* min-width: 33.3%; */
-
+    flex-direction: row;
     display: flex;
-    flex-direction: column;
+    height: 20vh;
+    align-items: flex-end;
   }
 
   .img_system_flexer img {
@@ -367,7 +371,7 @@ body {
 }
 
 .nullMsg iframe {
-  height: 700px;
+  height: 650px;
   width: 1000px;
 }
 

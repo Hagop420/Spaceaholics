@@ -243,8 +243,7 @@ $btn_title_bar.addEventListener('click', () => {
       const view_imgs_LS_flexer = document.createElement('div');
       view_imgs_LS_flexer.className = 'img_system_flexer';
 
-favoritePlanetsCall.appendChild(view_imgs_LS_flexer);
-
+      favoritePlanetsCall.appendChild(view_imgs_LS_flexer);
 
       // apending to parent div
 
@@ -256,8 +255,9 @@ favoritePlanetsCall.appendChild(view_imgs_LS_flexer);
       // // favoritePlanetsCall.appendChild(view_imgs_LS_flexer);
       // favoritePlanetsCall.appendChild(sunViewLs);
       favoritePlanetsCall.appendChild(view_imgs_LS_flexer);
-      view_imgs_LS_flexer.appendChild(sunViewLs);
+      // view_imgs_LS_flexer.appendChild(sunViewLs);
 
+      $textColumn.appendChild(view_imgs_LS_flexer);
       // view_imgs_LS_flexer.appendChild(sunViewLs);
       // query for sun img
       const sunOnce = document.querySelector('.sunView');
@@ -300,7 +300,6 @@ glassBtn.addEventListener('click', () => {
   if (img) {
     img.remove();
   }
-
 
   // if user types in a planet name get the correct planet image
   const inputSearch = document.querySelector('form input').value;
@@ -426,6 +425,8 @@ glassBtn.addEventListener('click', () => {
     // apending to parent div
     favoritePlanetsCall.appendChild(view_imgs_LS_flexer);
 
+    $textColumn.appendChild(view_imgs_LS_flexer);
+
     const sunViewLs = document.createElement('img');
     sunViewLs.classList.add('sunView');
     sunViewLs.setAttribute('src', './images/sunSmall.png');
@@ -433,7 +434,7 @@ glassBtn.addEventListener('click', () => {
 
     // query for sun img
     const sunOnce = document.querySelector('.sunView');
-    console.log(sunViewLs)
+    console.log(sunViewLs);
     if (sunOnce) {
       sunOnce.remove();
     }
@@ -448,6 +449,29 @@ glassBtn.addEventListener('click', () => {
       pencil.forEach((pen) => {
         pen.addEventListener('click', (event) => {
           viewSwap('entries');
+
+          const delImg = document.createElement('img');
+
+          delImg.className = 'delete_hole';
+          delImg.setAttribute('src', './images/black_hole_spinner.png');
+          delImg.classList.add('cursor');
+          delImg.setAttribute('alt', 'Delete_favorite_planets_button');
+
+          // query for the black hole
+          const black_hole_remove = document.querySelector('.delete_hole');
+          // calling/creating the black hole once
+          view_imgs_LS_flexer.appendChild(delImg);
+
+          delImg.addEventListener('click', () => {
+            document.body.classList.add('overflow_hide');
+            $modal_open.className = 'block confirmation overlay';
+            $modal_content.className = 'modal-content-inner-center';
+            // viewSwap('favorites');
+            elevatorMusic();
+          });
+          if (black_hole_remove) {
+            black_hole_remove.remove();
+          }
 
           // document.querySelector('.planet_img_api').src = xhr.response.collection.items[e.target].links[0].href
 
@@ -503,7 +527,6 @@ glassBtn.addEventListener('click', () => {
       pencil.forEach((pen) => {
         pen.addEventListener('click', (event) => {
           viewSwap('entries');
-          // debugger;
 
           const divWrap = event.target.closest('.divWrap');
 
@@ -557,7 +580,6 @@ const entriesTop = document.querySelector('.topForm');
 function toggleEntries() {
   if (data.entries.length === 0) {
     $nullMsg.classList.remove('hidden');
-    // $nullMsg.classList.add('hidden')
   } else {
     // $nullMsg.classList.remove('block');
     $nullMsg.classList.add('hidden');
@@ -651,7 +673,7 @@ swapPlanes.addEventListener('click', () => {
 
 $NEW.addEventListener('click', () => {
   viewSwap('entries');
-  $form.reset();
+  // $form.reset();
 });
 
 // styling the modal
@@ -740,8 +762,6 @@ $modal_button_yes.addEventListener('click', () => {
       break;
     }
   }
-
-
 
   viewSwap('favorites');
   toggleEntries();
