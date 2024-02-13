@@ -191,7 +191,7 @@ $btn_title_bar.addEventListener('click', () => {
         planetImagesCall.firstChild.remove();
       }
 
-      // document.querySelector('.planet_img_api').src = xhr.response.collection.items[e.target].links[0].href
+      // document.querySelector('.planet_img_api').src = xhr.response.collection.items[e.target].links
 
       const divWrap = event.target.closest('.divWrap');
 
@@ -296,9 +296,10 @@ $btn_title_bar.addEventListener('click', () => {
 
 glassBtn.addEventListener('click', () => {
   const img = document.querySelector('.planet_img_api');
+  const idOne = document.querySelector('#onceCalled');
 
-  if (img) {
-    img.remove();
+  if (idOne) {
+    idOne.remove();
   }
 
   // if user types in a planet name get the correct planet image
@@ -324,6 +325,7 @@ glassBtn.addEventListener('click', () => {
 
     const favoritePlanetsCall = document.createElement('div');
     favoritePlanetsCall.className = 'favoritePlanets bottomForm';
+    favoritePlanetsCall.id = 'onceCalled';
 
     const $imageColumn = document.createElement('div');
 
@@ -423,7 +425,7 @@ glassBtn.addEventListener('click', () => {
     view_imgs_LS_flexer.className = 'img_system_flexer';
 
     // apending to parent div
-    favoritePlanetsCall.appendChild(view_imgs_LS_flexer);
+    // favoritePlanetsCall.appendChild(view_imgs_LS_flexer);
 
     $textColumn.appendChild(view_imgs_LS_flexer);
 
